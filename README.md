@@ -1,24 +1,45 @@
-# README
+# 在宅サービス〜おたすけノート〜
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+在宅サービスについて、わざわざ事業所に戻ってからファックスや電話で他職種へ報告する必要をなくし、ある程度現場(患者宅)で仕事を完結させることができる。
+また、特定の事項に関しては家族(患者)が確認することもできるようにし、ケアされる側の立場にも配慮した。
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+他職種スタッフ間の伝達事項や処置の内容などを容易に共有することができる／一部の項目については家族(患者)も確認することができる
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+他職種連携が進めば進むほど、在宅訪問後の記録に時間を要しているという現状を踏まえ、書類や記録のための時間を少しでも削減してケアの時間に当てたいと考えた。
+また、今後の介護スタッフの年齢層などを考慮して出来るだけ簡単な仕様とした。
+とにかく毎日書いてもらうことが重要であり、写真をあげられるようにしたことで機能に多様性を持たせた。
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+在宅サービスを提供するスタッフと家族(患者)
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+患者宅訪問時に必要な記録がその場で簡潔に行える
 
-* ...
+## 設計書
+
+<...>
+
+## チャレンジ要素一覧
+
+https://docs.google.com/spreadsheets/d/1NTATLkFCDXbxUJcrZCfxQdoqyrXjDDZqsCpEtw4O1mI/edit?usp=sharing
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名と URL を明記してください。
+- 使用しない場合は、使用素材の項目を README から削除してください。
