@@ -1,5 +1,9 @@
 # 在宅サービス〜おたすけノート〜
 
+## サイトイメージ
+
+<img width="774" alt="home_care_app top" src="https://user-images.githubusercontent.com/86139603/132072376-36cd3633-5fa3-4e7a-a083-af23c2a7be59.png">
+
 ## サイト概要
 
 医療福祉における在宅サービス提供スタッフ・利用者様用のアプリケーション。
