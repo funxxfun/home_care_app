@@ -1,24 +1,49 @@
-# README
+# 在宅サービス〜おたすけノート〜
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイトイメージ
 
-Things you may want to cover:
+<img width="774" alt="home_care_app top" src="https://user-images.githubusercontent.com/86139603/132072376-36cd3633-5fa3-4e7a-a083-af23c2a7be59.png">
 
-* Ruby version
+## サイト概要
 
-* System dependencies
+医療福祉における在宅サービス提供スタッフ・利用者様用のアプリケーション。
+サービス利用者様宅を訪問した際にケア内容やデータなど、現場で必要な情報を容易に共有することができ、画像投稿機能なども実相させることにより、提供したサービスの記録が簡単に行える。
+事業所に戻ってからファックスや電話で他職種へ報告する必要をなくし、現場(サービス利用者様宅)で仕事を完結させることができる。
+利用者様の日中の様子を撮影した写真など、特定の事項に関してはご家族(サービス利用者様)が確認することもできるようにし、ケアされる側の立場にも配慮した。
+今後ますます増えていく在宅サービスの質を維持・向上するとともに、サービス提供側のスタッフの年齢・技術背景などを考慮し、なるべく簡潔に使用できるよう工夫した。
 
-* Configuration
+### サイトテーマ
 
-* Database creation
+医療福祉系在宅サービスにおいてサービス提供側のスタッフの記録を簡便化することで、より質の高いサービスの提供を目指すアプリケーション。
 
-* Database initialization
+### テーマを選んだ理由
 
-* How to run the test suite
+他職種連携が進めば進むほど、在宅訪問後の記録に時間を要しているという現状を踏まえ、書類や記録のための時間を少しでも削減してケアの時間に当てたいと考えた。
+また、今後の介護スタッフの年齢層などを考慮して出来るだけ簡単な仕様とした。
+とにかく毎日書いてもらうことが重要であり、写真をあげられるようにしたことで機能に多様性を持たせた。
 
-* Services (job queues, cache servers, search engines, etc.)
+### ターゲットユーザ
 
-* Deployment instructions
+在宅サービスを提供するスタッフとご家族(サービス利用者様)
 
-* ...
+### 主な利用シーン
+
+医療福祉系サービスを提供するスタッフが利用者様宅を訪問した際に、簡単に記録をとったり、他職種からの情報を確認する際に利用する。
+
+
+## チャレンジ要素一覧
+
+https://docs.google.com/spreadsheets/d/1NTATLkFCDXbxUJcrZCfxQdoqyrXjDDZqsCpEtw4O1mI/edit?usp=sharing
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+
+
+
+
