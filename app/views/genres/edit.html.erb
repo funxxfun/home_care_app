@@ -1,2 +1,16 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
+<div class = "col-md-8 offset-md-1">
+  <% if @genre.errors.any? %>
+     <%= @genre.errors.count %>errors prohibited this obj from being saved:
+     <ul><%= @genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+     </ul>
+     <% end %>
+   <% end %>
+
+  <h4>職種編集</h4>
+  <%= form_with model: @genre, url:"/genres/#{@genre.id}", local:true do |f| %>
+    <div>職種名</div>
+    <%= f.text_field :genre_name, autofocus:true %>
+    <%= f.submit '変更を保存', class: 'btn btn-success' %>
+  <% end %>
+</div>
