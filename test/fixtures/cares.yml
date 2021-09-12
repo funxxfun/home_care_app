@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_patient_id: 1
+  user_staff_id: 1
+  weight: 1
+  body_temperature: 1
+  blood_pressure: MyString
+  pulse_rate: 1
+  detail: MyText
+  start_time：datetime: MyString
+
+two:
+  user_patient_id: 1
+  user_staff_id: 1
+  weight: 1
+  body_temperature: 1
+  blood_pressure: MyString
+  pulse_rate: 1
+  detail: MyText
+  start_time：datetime: MyString

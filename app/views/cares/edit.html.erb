@@ -1,0 +1,41 @@
+<% if flash[:notice] %>
+ <p id="notice">
+<%= flash[:notice] %>
+ </p>
+<% end %>
+ <% if @care.errors.any? %>
+  <%= @care.errors.count %>error prohibited this obj from being saved:
+  <% @care.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
+
+<div class="container">
+ <div class="center-block">
+  <div class="col-md-3">
+    <%= form_with model: @care, local:true do |f| %>
+    
+    <h4>体重</h4>
+      <%= f.text_field :weight %>
+    <h4>体温</h4>
+      <%= f.text_field :body_temperature %>
+    <h4>血圧</h4>
+      <%= f.text_field :blood_pressure %>
+    <h4>脈拍</h4>
+      <%= f.text_field :pulse_rate %>
+    <h4>ケア内容</h4>
+      <%= f.text_field :detail %>
+    
+      <%= f.text_field :start_time %>
+      
+      
+    <div>
+      <%= f.submit '更新する', class: "btn btn-success" %>
+    </div>
+  <% end %>
+  
+ </div>
+ </div>
+</div>

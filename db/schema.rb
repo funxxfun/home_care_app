@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_12_075213) do
+ActiveRecord::Schema.define(version: 2021_09_12_150547) do
+
+  create_table "cares", force: :cascade do |t|
+    t.integer "user_patient_id"
+    t.integer "user_staff_id"
+    t.integer "weight"
+    t.integer "body_temperature"
+    t.string "blood_pressure"
+    t.integer "pulse_rate"
+    t.text "detail"
+    t.string "start_time：datetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "genre_name"
