@@ -75,6 +75,10 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'simple_calendar', '~> 2.0'
 gem "chartkick"
 
+gem 'devise'
+
+
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
