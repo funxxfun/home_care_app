@@ -65,10 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
-gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+
 
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
@@ -79,3 +76,9 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'simple_calendar', '~> 2.0'
 gem "chartkick"
+
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
