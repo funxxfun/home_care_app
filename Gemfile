@@ -74,7 +74,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'simple_calendar', '~> 2.0'
 gem "chartkick"
-
+gem 'activeadmin'
 gem 'devise'
 
 
