@@ -1,0 +1,54 @@
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-mg navbar-light bg-light navbar navbar-dark border-bottom" style="padding:10px;">
+   <div id="head-logo">
+     <%#= link_to image_tag('/images/logo/logo.png') %>
+     <!--, url: root_path-->
+   </div>
+    <div class="container">
+
+      <%#= link_to image_tag("logo.png", size: "150x50"), root_path, class: "image mt-2" %>
+        <div class="navbar mt-4 nav-left" id="navbarToggleExternalContent">
+          <% if user_signed_in? %>
+            <%= link_to '基本情報', cares_path, class: "btn btn-outline-light nav-menu-text btn-sm" %>
+            <%= link_to '連絡先',cares_path, class: "btn btn-outline-light nav-menu-text ms-4 btn-sm" %>
+            <%= link_to 'タイムライン', cares_path, class: "btn btn-outline-light ms-4 btn-sm" %>
+            <%= link_to 'カレンダー', cares_path, class: "btn btn-outline-light ms-4 btn-sm" %>
+            <%= link_to 'データ', cares_path, class: "btn btn-outline-light ms-4 btn-sm" %>
+            <%= link_to '記録', cares_path, class: "btn btn-outline-light ms-4 btn-sm" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light nav-menu-text ms-4 me-4 btn-sm" %>
+            <%#= form_with url: searches_search_path, method: :get, local: :true do %>
+              <form class="d-flex align-items-end flex-column bd-highlight mb-3" >
+                <div class="input-group mt-auto p-2 bd-highlight">
+                  <input type="search" class="form-control mr-sm-2" placeholder="検索">
+                    <div class="input-group-btn">
+                      <%#= select_tag :model, options_for_select([['利用者様'], ['記録']]) %>
+                      <%= select_tag :method, options_for_select([["完全一致","perfect"],["前方一致","front"],["後方一致","back"],["部分一致","part"]]) %>
+                      <%= submit_tag "検索" %>
+                    </div>
+                  </div>
+              </form>
+              
+            <%# end %>
+          <%# elsif user_signed_in? %>
+            <%#= link_to ' Item ', cares_path, class: "btn btn-outline-light nav-menu-text btn-sm" %>
+            <%#= link_to ' Member ', cares_path, class: "btn btn-outline-light nav-menu-text ms-4 btn-sm " %>
+            <%#= link_to ' Order ', cares_path, class: "btn btn-outline-light nav-menu-text ms-4 btn-sm " %>
+            <%#= link_to ' Genre ', cares_path, class: "btn btn-outline-light ms-4 btn-sm" %>
+            <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-outline-light nav-menu-text ms-4 me-4 btn-sm" %>
+            <%#= form_with url: searches_search_path, method: :get, local: :true do %>
+              <%#= text_field_tag :content %>
+              <%#= select_tag :model, options_for_select([['利用者様'], ['記録']]) %>
+              <%#= select_tag :method, options_for_select([["完全一致","perfect"],["前方一致","front"],["後方一致","back"],["部分一致","part"]]) %>
+              <%#= submit_tag "検索" %>
+            <%# end %>
+            
+          <% else %>
+          
+            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-outline-light ms-4 btn-sm" %>
+            <%= link_to 'ログイン', new_user_session_path,class: "btn btn-outline-light ms-4 btn-sm" %>
+            
+          <% end %>
+        </div>
+    </div>
+  </nav>
+</header>
