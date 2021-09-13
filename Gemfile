@@ -76,6 +76,9 @@ gem 'simple_calendar', '~> 2.0'
 gem "chartkick"
 gem 'activeadmin'
 gem 'devise'
+# ログイン機能を日本語化するための追記
+gem 'rails-i18n'
+gem 'devise-i18n'
 
 
 
