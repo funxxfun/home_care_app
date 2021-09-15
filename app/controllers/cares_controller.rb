@@ -5,6 +5,8 @@ class CaresController < ApplicationController
 
   def create
     @care = Care.new(care_params)
+    @care.user_patient_id = 1
+    @care.user_staff_id = 1
     @care.save
     redirect_to cares_path
   end
@@ -31,7 +33,7 @@ class CaresController < ApplicationController
 
   private
   def care_params
-    params.require(:care).permit(:weight,:body_temperature, :blood_pressure, :pulse_rate, :detail)
+    params.require(:care).permit(:weight,:body_temperature, :blood_pressure, :pulse_rate, :detail, :start_time)
   end
 
 

@@ -11,7 +11,7 @@
   </div>
 
   <div class="field">
-    <%= f.collection_select :genre_name, Genre.all, :id, :genre_name, autofocus: true, include_blank: "--職種を選択して下さい--", class: 'form-control'  %><br />
+    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, autofocus: true, include_blank: "--職種を選択して下さい--", class: 'form-control'  %><br />
   </div>
 
   <div class="field">

@@ -8,7 +8,7 @@ class CreateCares < ActiveRecord::Migration[5.2]
       t.string :blood_pressure
       t.integer :pulse_rate
       t.text :detail
-      t.string :start_time：datetime
+      t.datetime :start_time
 
       t.timestamps
     end

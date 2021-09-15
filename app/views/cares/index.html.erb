@@ -2,3 +2,28 @@
 
 <%#= line_chart @weight.group_by_day(:created_at, last: 7).average(:weight),height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
 
+<div class = "col-md-8 offset-md-1">
+   <h1>Cares</h1>
+    <table class="table table-striped">
+     <thead>
+      <tr>
+       <th>体重</th>
+       <th>体温</th>
+       <th>血圧</th>
+       <th>脈拍</th>
+       <th>ケア詳細</th>
+      </tr>
+     </thead>
+     <tbody>
+       <tr>
+       <% @cares.each do |care| %>
+         <td><%= care.weight %></td>
+         <td><%= care.body_temperature %></td>
+         <td><%= care.blood_pressure %></td>
+         <td><%= care.pulse_rate %></td>
+         <td><%= care.detail %></td>
+      </tr>
+       <% end %>
+      </tbody>
+    </table>
+</div>

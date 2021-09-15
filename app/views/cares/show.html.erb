@@ -1,12 +1,14 @@
-<h1>care detail</h1>
+<div class = "col-md-4 offset-md-1">
+   <h1>care detail</h1>
+   <p>記録日：<%= @care.start_time %></p>
+   <p>記録者：<%#= @care.user_id %></p>
    <table class="table table-striped">
      <tbody>
-       <tr>
-         <td><%= @care.weight %></td>
-         <td><%= @care.body_temperature %></td>
-         <td><%= @care.blood_pressure %></td>
-         <td><%= @care.pulse_rate %></td>
-         <td><%= @care.detail %></td>
-       </tr>
+         <tr><td>体重：<%= @care.weight %></td></tr>
+         <tr><td>体温：<%= @care.body_temperature %></td></tr>
+         <tr> <td>血圧：<%= @care.blood_pressure %></td></tr>
+         <tr><td>脈拍：<%= @care.pulse_rate %></td></tr>
+         <tr> <td>ケア内容：<%= @care.detail %></td></tr>
      </tbody>
    </table>
+</div>

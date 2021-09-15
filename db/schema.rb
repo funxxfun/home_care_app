@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_035628) do
     t.string "blood_pressure"
     t.integer "pulse_rate"
     t.text "detail"
-    t.string "start_time：datetime"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
