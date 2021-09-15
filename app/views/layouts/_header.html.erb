@@ -1,10 +1,16 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="/">の〜〜と</a>
+   <div class="navbar-brand d-block">
+     <%= link_to root_path do %>
+      <%= image_tag 'image/twitter_header_photo_1.png', size: "100x80", alt: "アイコン" %>
+     <% end %>
+   </div>
 
   <nav>
     <div class="navbar-nav ml-auto">
      <div class="navbar nav-left" id="navbarToggleExternalContent">
+      <!--利用者様、ご家族以外がログインした時-->
+      <%# if user_signed_in? && current_user.id == genre_id %>
       <% if user_signed_in? %>
        <%= link_to '基本情報   ', cares_path, class: "btn text-warning ms-2 btn-sm" %>
        <%= link_to 'タイムライン', cares_path, class: "btn text-warning ms-2 btn-sm" %>
@@ -27,33 +33,14 @@
         </div>
         <%# end %>
 
+     <!--ご家族様がログインした時-->
       <%# elsif user_signed_in? %>
-       <%#= link_to '基本情報', cares_path, class: "btn btn-outline-light nav-menu-text btn-sm" %>
        <%#= link_to 'タイムライン', cares_path, class: "btn btn-outline-light ms-2 btn-sm" %>
-       <%#= link_to 'カレンダー', cares_path, class: "btn btn-outline-light ms-2 btn-sm" %>
-       <%#= link_to 'データ', cares_path, class: "btn btn-outline-light ms-2 btn-sm" %>
-       <%#= link_to '記録', cares_path, class: "btn btn-outline-light ms-2 btn-sm" %>
        <%#= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light nav-menu-text ms-2 btn-sm" %>
-        <!--<div>-->
-        <%#= form_with url: searches_search_path, method: :get, local: :true do %>
-         <!--<form class="d-flex align-items-end flex-column bd-highlight mb-3" >-->
-         <!-- <div class="input-group mt-auto p-2 bd-highlight">-->
-         <!--  <input type="search" class="form-control mr-sm-2" placeholder="検索">-->
-         <!--   <div class="input-group-btn">-->
-             <%#= select_tag :model, options_for_select([['利用者様'], ['記録']]) %>
-              <%#= select_tag :method, options_for_select([["完全一致","perfect"],["前方一致","front"],["後方一致","back"],["部分一致","part"]]) %>
-              <%#= submit_tag "検索" %>
-        <!--    </div>-->
-        <!--   </div>-->
-        <!--  </form>-->
-        <!--</div>-->
-        <%# end %>
-
+      <%# end %>
       <% else %>
-
         <%= link_to '新規登録', new_user_registration_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>
         <%= link_to 'ログイン', new_user_session_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>
-
       <% end %>
       </div>
       </div>

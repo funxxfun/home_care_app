@@ -11,7 +11,6 @@ class CaresController < ApplicationController
 
   def show
     @care = Care.find(params[:id])
-
   end
 
   def index
