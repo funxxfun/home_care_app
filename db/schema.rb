@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_035628) do
+ActiveRecord::Schema.define(version: 2021_09_16_050845) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2021_09_15_035628) do
   end
 
   create_table "cares", force: :cascade do |t|
-    t.integer "user_patient_id"
-    t.integer "user_staff_id"
+    t.integer "user_id"
+    t.integer "patient_id"
     t.integer "weight"
     t.integer "body_temperature"
     t.string "blood_pressure"
@@ -78,6 +78,25 @@ ActiveRecord::Schema.define(version: 2021_09_15_035628) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "patients", force: :cascade do |t|
+    t.integer "number"
+    t.string "name"
+    t.integer "gender"
+    t.date "birthday"
+    t.string "address"
+    t.string "phone_number"
+    t.string "supporters_phone_number"
+    t.string "supporters_name"
+    t.string "relation"
+    t.text "main_disease"
+    t.text "medical_history"
+    t.text "allergy"
+    t.integer "care_level"
+    t.text "information"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_035628) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.integer "genre_id"
+    t.integer "genre_name", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

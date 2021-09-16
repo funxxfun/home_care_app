@@ -1,0 +1,12 @@
+<div class = "col-md-8 offset-md-1">
+　<table class="table table-hover table-inverse">
+　　<thead>
+　　　<tr><th><h2>利用者様一覧</h2></th></tr>
+　　</thead>
+　　<tbody>
+　　　<% @patients.each do |patient| %>
+　　　<tr><td><%= patient.name %></td></tr>
+　　　<% end %>
+　　</tbody>
+　</table>
+</div>

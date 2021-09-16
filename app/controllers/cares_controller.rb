@@ -5,8 +5,7 @@ class CaresController < ApplicationController
 
   def create
     @care = Care.new(care_params)
-    @care.user_patient_id = 1
-    @care.user_staff_id = 1
+    @care.user_id = current_user.id
     @care.save
     redirect_to cares_path
   end
@@ -28,8 +27,7 @@ class CaresController < ApplicationController
     redirect_to care_path(care.id)
   end
 
-  def destroy
-  end
+ 
 
   private
   def care_params

@@ -1,0 +1,8 @@
+<div class = "col-md-8 offset-md-1">
+  <h4>利用者様情報登録</h4>
+  <%= form_with model: @patient, local:true do |f| %>
+    <div>氏名</div>
+    <%= f.text_field :name, autofocus:true %>
+    <%= f.submit '登録する', class: 'btn btn-success' %>
+  <% end %>
+</div>
