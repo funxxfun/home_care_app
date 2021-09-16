@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
-    # @genre = Genre.new
+ 
   end
 
   def show

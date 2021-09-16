@@ -1,8 +1,39 @@
 <div class = "col-md-8 offset-md-1">
   <h4>利用者様情報登録</h4>
   <%= form_with model: @patient, local:true do |f| %>
-    <div>氏名</div>
+    <div>利用者様番号</div>
+    <%= f.text_field :number, autofocus:true %>
+    <div>ご氏名</div>
     <%= f.text_field :name, autofocus:true %>
+    <div>性別</div>
+    <%= f.label :gender %>
+    <%= f.select :gender, Patient.genders.keys %>
+    <div>生年月日</div>
+    <%= f.label :birthday %></br>
+    <%= f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1960, 1, 1), autofocus:true %>
+    <div>ご住所</div>
+    <%= f.text_field :address, autofocus:true %>
+    <div>電話番号</div>
+    <%= f.text_field :phone_number, autofocus:true %>
+    <div>緊急連絡先</div>
+    <%= f.text_field :supporters_phone_number, autofocus:true %>
+    <div>緊急連絡先ご氏名</div>
+    <%= f.text_field :supporters_name, autofocus:true %>
+    <div>続柄</div>
+    <%= f.text_field :relation, autofocus:true %>
+    <div>主病名</div>
+    <%= f.text_field :main_disease, autofocus:true %>
+    <div>主病名</div>
+    <%= f.text_field :main_disease, autofocus:true %>
+    <div>既往歴</div>
+    <%= f.text_field :medical_history, autofocus:true %>
+    <div>アレルギー歴</div>
+    <%= f.text_field :allergy, autofocus:true %>
+    <div>介護度</div>
+    <%= f.label :care_level, autofocus:true %>
+    <%= f.select :care_level, Patient.care_levels.keys %>
+    <div>その他</div>
+    <%= f.text_field :information, autofocus:true %>
     <%= f.submit '登録する', class: 'btn btn-success' %>
   <% end %>
 </div>

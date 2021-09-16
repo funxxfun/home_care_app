@@ -4,14 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  # belongs_to :genre
   has_many :cares, dependent: :destroy
-  
-  # validates :genre_id,presence:true
   # validates :name,presence:true
  
-         
-  enum genre_name: { 利用者様: 0, ご家族様: 1, 医師: 2, ケアマネ: 3, 薬剤師: 4 }
+  enum genre_name: { 利用者様: 0, 医師: 1, 看護師: 2, 薬剤師: 3, リハビリ: 4, 介護士: 5, ケアマネ: 6 }
   
   
 end

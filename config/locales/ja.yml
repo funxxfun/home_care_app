@@ -2,13 +2,36 @@
 ja:
   activerecord:
     models:
+      admin_user: "管理者"
+      comment: "コメント"
+      genre: "職種"
+      patient: "利用者様"
+     
     attributes:
       admin_user:
       genre:
+        genre_name: "職種"
         id: "登録番号"
         genre_name: "職種名"
         created_at: "作成日"
         updated_at: "更新日"
+      patient:
+        user_id: "記載者"
+        created_at: "作成日"
+        number: "利用者様番号"
+        name: "ご氏名"
+        gender: "性別"
+        birthday: "生年月日"
+        address: "ご住所"
+        phone_number: "電話番号"
+        supporters_phone_number: "緊急連絡先"
+        supporters_name: "金州連絡先ご氏名"
+        relation: "続柄"
+        main_disease: "主病名"
+        medical_history: "既往歴"
+        allergy: "アレルギー"
+        care_level: "介護度"
+        information: "その他"
 
   active_admin:
     dashboard: "ダッシュボード"

@@ -1,14 +1,20 @@
 <div class = "col-md-4 offset-md-1">
    <h1>利用者様基本情報</h1>
-   <p>記録日：<%#= @patient.created_at %></p>
-   <p>記録者：<%#= @care.user_id %></p>
+   <p>記録日：<%= @patient.created_at %></p>
+   <p>記録者：<%#= @patient.user_id %></p>
    <table class="table table-striped">
      <tbody>
-         <tr><td>氏名：<%= @patient.name %></td></tr>
-         <tr><td></td></tr>
-         <tr> <td></td></tr>
-         <tr><td></td></tr>
-         <tr> <td></td></tr>
+         <tr><td>利用者番号：<%= @patient.number %></td></tr>
+         <tr><td>ご氏名：<%= @patient.name %></td></tr>
+         <tr><td>性別：<%= @patient.gender %></td></tr>
+         <tr><td>生年月日：<%= @patient.birthday %></td></tr>
+         <tr><td>ご住所：<%= @patient.address %></td></tr>
+         <tr><td>電話番号：<%= @patient.phone_number %></td></tr>
+         <tr><td>緊急連絡先：<%= @patient.supporters_phone_number %></td></tr>
+         <tr><td>続柄：<%= @patient.relation %></td></tr>
+         <tr><td>主病名：<%= @patient.medical_history %></td></tr>
+         <tr><td>アレルギー歴：<%= @patient.allergy %></td></tr>
+         <tr><td>その他：<%= @patient.information %></td></tr>
      </tbody>
    </table>
 </div>
