@@ -3,7 +3,7 @@
   <%= form_with model: @patient, local:true do |f| %>
     <div>利用者様番号</div>
     <%= f.text_field :number, autofocus:true %>
-    <div>ご氏名</div>
+    <div>お名前</div>
     <%= f.text_field :name, autofocus:true %>
     <div>性別</br>
     <%= f.select :gender, Patient.genders.keys %>

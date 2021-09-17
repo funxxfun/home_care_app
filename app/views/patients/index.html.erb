@@ -1,13 +1,27 @@
 <div class = "col-md-8 offset-md-1">
+<!--利用者様検索-->
+<div class="search-form">
+  <p>検索</p>
+  <%= form_with url: patients_path, method: :get, local: true  do |f| %>
+    <%= f.text_field :search %>
+    <%= f.submit '利用者様検索' %>
+  <% end %>
+<div> 
 　<table class="table table-hover table-inverse">
+　　<h2>利用者様一覧</h2>
 　　<thead>
-　　　<tr><th><h2>利用者様一覧</h2></th></tr>
+　　　<th>利用者様番号：</th>
+　　　<th>お名前：</th>
 　　</thead>
 　　<tbody>
-　　　<% @patients.each do |patient| %>
-　　　<tr><td>ご氏名：<%= link_to patient.name, patient_path(patient.id) %></td></tr>
-　　　<tr><td>利用者様番号：<%= patient.number %></td></tr>
+　　  <tr>
+　  　　<% @patients.each do |patient| %>
+　　　    <td><%= patient.number %></td>
+　　    　<td><%= link_to patient.name, patient_path(patient.id) %></td>
+　　  </tr>
 　　　<% end %>
 　　</tbody>
 　</table>
+
+
 </div>

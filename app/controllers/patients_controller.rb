@@ -5,8 +5,8 @@ class PatientsController < ApplicationController
   end
 
   def index
-    @patients = Patient.all
- 
+    # @patients = Patient.all
+    @patients = Patient.search(params[:search])
   end
 
   def show
@@ -34,6 +34,12 @@ class PatientsController < ApplicationController
       render :edit
     end
   end
+  
+  def search
+    @patients = Patient.search(params[:search])
+  end
+  
+  
 
   private
 

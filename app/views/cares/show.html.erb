@@ -1,6 +1,6 @@
 <div class = "col-md-4 offset-md-1">
-   <h1>care detail</h1>
-   <p>記録日：<%= @care.start_time %></p>
+   <h2>サービス提供記録</h2>
+   <p>記録日：<%= @care.start_time.strftime("%Y-%m-%d %H:%M") %></p>
    <p>記録者：<%#= @care.user_id %></p>
    <table class="table table-striped">
      <tbody>
