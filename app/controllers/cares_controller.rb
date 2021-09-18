@@ -1,6 +1,7 @@
 class CaresController < ApplicationController
   def new
     @care = Care.new
+    # @cares = patient.find( )
   end
 
   def create
@@ -16,6 +17,7 @@ class CaresController < ApplicationController
 
   def index
     @cares = Care.all
+
   end
 
 
@@ -27,7 +29,7 @@ class CaresController < ApplicationController
     redirect_to care_path(care.id)
   end
 
- 
+
 
   private
   def care_params

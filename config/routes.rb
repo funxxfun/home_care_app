@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   root 'homes#top'
+  # get 'top' => 'homes#top'
   resources :genres, only: [ :create, :index, :edit, :update]
   resources :patients, only: [ :new, :create, :index, :show, :edit, :update]
   resources :cares
+  resources :posts, only: [:create, :index, :show, :destroy]
   
-  # get 'top' => 'homes#top'
   
 end

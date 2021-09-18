@@ -1,4 +1,4 @@
-<%= line_chart Care.group(:weight).count,height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
+<%= line_chart Care.group(:weight).count,height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false, discrete: true %>
 
 <%#= line_chart @weight.group_by_day(:created_at, last: 7).average(:weight),height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
 
