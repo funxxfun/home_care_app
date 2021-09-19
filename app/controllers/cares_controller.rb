@@ -25,10 +25,18 @@ class CaresController < ApplicationController
 
   def edit
     @care = Care.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
   end
   def update
     care = Care.find(params[:id])
-    redirect_to care_path(care.id)
+    redirect_to patient_care_path(care.id)
+  end
+
+
+  def destroy
+    @care = Care.find(params[:id])
+    @bcare.destroy
+    redirect_to patient_cares_path(patient.id)
   end
 
 

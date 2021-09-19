@@ -1,11 +1,11 @@
 <div class = "col-md-4 offset-md-1">
    <div class="header-name">
-    <%#= @patient.name %>
+    <%#= @patient.name %>様
    </div>
    <div>
       <h2>サービス提供記録</h2>
       <p>記録日：<%= @care.start_time.strftime("%Y-%m-%d %H:%M") %></p>
-      <p>記録者：<%= @care.user_id.name %></p>
+      <p>記録者：<%#= @care.user_id.name %></p>
       <table class="table table-striped">
         <tbody>
             <tr><td>体重：<%= @care.weight %></td></tr>
@@ -15,5 +15,11 @@
             <tr> <td>ケア内容：<%= @care.detail %></td></tr>
         </tbody>
       </table>
-   </div>
+    </div>
+    <div>
+        <%# if @user.id == current_user.id %>
+          <%= link_to "編集する", edit_patient_care_path, class: "btn btn-success" %>
+          <%= link_to "削除する", patient_care_path, class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
+          <%# end %>
+    </div>
 </div>

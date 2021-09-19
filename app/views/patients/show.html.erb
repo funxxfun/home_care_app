@@ -1,7 +1,9 @@
 <div class = "col-md-4 offset-md-1">
+ <div class="header-name">
+   <%= @patient.name %>様
+ </div>
    <h1>利用者様基本情報</h1>
    <p>記録日：<%= @patient.created_at %></p>
-   <p>記録者：<%#= @patient.user_id %></p>
    <table class="table table-striped">
      <tbody>
          <tr><td>利用者番号：<%= @patient.number %></td></tr>
