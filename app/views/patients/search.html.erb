@@ -17,7 +17,9 @@
   <% else %>
     <div class="search-form">
       <p>利用者様検索</p>
-      <%= form_with url: patient_path(patient.id), method: :get, local: true  do |f| %>
+      <%= form_with model: @patient, local:true do |f| %>
+      <%#= form_with url: patient_path(patient_id), method: :get, local: true  do |f| %>
+      <!--タイムライン投稿が完成したらURL変更-->
       <%#= form_with url: patient_posts_path(patient.id), method: :get, local: true  do |f| %>
         <%= f.text_field :search %>
         <%= f.submit '利用者様検索' %>
