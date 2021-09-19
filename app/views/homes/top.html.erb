@@ -4,13 +4,26 @@
       <main class="px-3">
         <font size="7">在宅サービスに携わる全ての方</br>みんなで支える</br><strong>It's good for to be home</strong></br></p>
         <div class="wrapper">
-        <%= link_to '利用者様', cares_path, class: "col btn btn-green-moon btn-rounded" %>
-        <%= link_to '医師', cares_path, class: "btn btn-outline-light btn-sm" %>
-        <%= link_to '看護師', cares_path, class: "btn btn-outline-light btn-sm" %>
-        <%= link_to '薬剤師', cares_path, class: "btn btn-outline-light btn-sm" %>
-        <%= link_to 'リハビリ', cares_path, class: "btn btn-outline-light btn-sm" %>
-        <%= link_to '介護士', cares_path, class: "btn btn-outline-light btn-sm" %>
-        <%= link_to 'ケアマネ', cares_path, class: "btn btn-outline-light btn-sm" %>
+          <ul>
+            <div class="d-flex justify-content-center">
+          　　<li><button type="button" class="btn btn-danger btn-lg rounded-pill">看護師</button></li>
+            </div>
+            <div class="btn-group align-self-start" role="group">
+          　　<li><button type="button" class="btn btn-primary btn-lg  rounded-pill">医師</button></li>
+          　　<li><button type="button" class="btn btn-warning btn-lg  rounded-pill text-white">薬剤師</button></li>
+            </div></br>
+            <div class="d-flex justify-content-center">
+          　　<li><button type="button" class="btn btn-primary btn-lg rounded-pill ">利用者様</button></li>
+            </div>
+            <div class="btn-group align-self-start" role="group">
+          　　<li><button type="button" class="btn btn-info btn-lg  rounded-pill">リハビリ</button></li>
+          　　<li><button type="button" class="btn btn-success btn-lg  rounded-pill">ケアマネ</button></li>
+            </div>
+            <div class="align-self-center"></div>
+          　　<li><button type="button" class="btn btn-light btn-lg rounded-pill text-white">介護士</button></li>
+            </div>
+        　</ul>
+
         </div>
       </main>
     </div>

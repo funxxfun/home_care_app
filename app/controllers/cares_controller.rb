@@ -1,14 +1,15 @@
 class CaresController < ApplicationController
   def new
     @care = Care.new
-    # @cares = patient.find( )
+    @patient = Patient.find(params[:patient_id])
   end
 
   def create
     @care = Care.new(care_params)
     @care.user_id = current_user.id
+    # @cares = patient.find(params[:id])
     @care.save
-    redirect_to cares_path
+    redirect_to patient_care_path[patient.id, care.id]
   end
 
   def show
@@ -16,6 +17,7 @@ class CaresController < ApplicationController
   end
 
   def index
+    @patient = Patient.find(params[:patient_id])
     @cares = Care.all
 
   end

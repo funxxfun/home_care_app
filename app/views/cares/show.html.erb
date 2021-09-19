@@ -1,14 +1,19 @@
 <div class = "col-md-4 offset-md-1">
-   <h2>サービス提供記録</h2>
-   <p>記録日：<%= @care.start_time.strftime("%Y-%m-%d %H:%M") %></p>
-   <p>記録者：<%#= @care.user_id %></p>
-   <table class="table table-striped">
-     <tbody>
-         <tr><td>体重：<%= @care.weight %></td></tr>
-         <tr><td>体温：<%= @care.body_temperature %></td></tr>
-         <tr> <td>血圧：<%= @care.blood_pressure %></td></tr>
-         <tr><td>脈拍：<%= @care.pulse_rate %></td></tr>
-         <tr> <td>ケア内容：<%= @care.detail %></td></tr>
-     </tbody>
-   </table>
+   <div class="header-name">
+    <%#= @patient.name %>
+   </div>
+   <div>
+      <h2>サービス提供記録</h2>
+      <p>記録日：<%= @care.start_time.strftime("%Y-%m-%d %H:%M") %></p>
+      <p>記録者：<%= @care.user_id.name %></p>
+      <table class="table table-striped">
+        <tbody>
+            <tr><td>体重：<%= @care.weight %></td></tr>
+            <tr><td>体温：<%= @care.body_temperature %></td></tr>
+            <tr> <td>血圧：<%= @care.blood_pressure %></td></tr>
+            <tr><td>脈拍：<%= @care.pulse_rate %></td></tr>
+            <tr> <td>ケア内容：<%= @care.detail %></td></tr>
+        </tbody>
+      </table>
+   </div>
 </div>

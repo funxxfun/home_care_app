@@ -11,6 +11,8 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    # @patient.care_id = current_patient.id
+    # @post =Post.new
   end
 
   def create
@@ -34,12 +36,12 @@ class PatientsController < ApplicationController
       render :edit
     end
   end
-  
+
   def search
     @patients = Patient.search(params[:search])
   end
-  
-  
+
+
 
   private
 

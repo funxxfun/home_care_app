@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :cares, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :user_patients, dependent: :destroy
 
   # validates :name,presence:true
 

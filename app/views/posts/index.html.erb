@@ -1,8 +1,11 @@
 <div class = "col-md-8 offset-md-1">
-  <div>
+  <div class="header-name">
+    <%= @patient.name %>
+  </div>
+  <div class="timeline-form">
   <!--タイムライン投稿フォーム-->
     <h1>タイムライン投稿</h1>
-    <%= form_with model: @post, local:true do |f| %>
+    <%= form_with model: [@post, @patient], local:true do |f| %>
       <%= f.file_field :image %>
       <h4>コメントを投稿する</h4>
       <%= f.text_area :content %>
@@ -10,17 +13,18 @@
     <% end %>
   </div>
   <!--投稿表示画面-->
-  <div>
-    <%# @post.each do |post| %>
-      <div>
-        <p><%#= post.created_at. %></p>
-        <p><%#= post.user.name %>さんの投稿</p>
-        <p><%#= post.content %></p>
-        <%# if @post.image.attached? %>
-          <%#= image_tag @post.image %>
-        <%# end %>
-      </div>
-    <%# end %>
+  <div class="timeline-index">
+    <h1>投稿画面表示</h1>
+  <!--  <%# @posts.each do |post| %>-->
+  <!--    <div>-->
+  <!--      <p><%#= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>-->
+  <!--      <p><%#= post.user.name %>さんの投稿</p>-->
+  <!--      <p><%#= post.content %></p>-->
+  <!--      <%# if post.image.attached? %>-->
+  <!--        <%#= image_tag post.image.variant(resize:'300x300') %>-->
+  <!--      <%# end %>-->
+  <!--    </div>-->
+  <!--  <%# end %>-->
   </div>
 
 </div>

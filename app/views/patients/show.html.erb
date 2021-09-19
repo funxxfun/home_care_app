@@ -17,4 +17,7 @@
          <tr><td>その他：<%= @patient.information %></td></tr>
      </tbody>
    </table>
+
+   <%= link_to "ケア入力を行う", new_patient_care_path(@patient), class: "btn btn-success" %>
+
 </div>

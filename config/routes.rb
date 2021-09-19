@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   root 'homes#top'
   # get 'top' => 'homes#top'
   resources :genres, only: [ :create, :index, :edit, :update]
-  resources :patients, only: [ :new, :create, :index, :show, :edit, :update]
-  resources :cares
-  resources :posts, only: [:create, :index, :show, :destroy]
-  
-  
+  resources :patients, only: [ :new, :create, :index, :show, :edit, :update] do
+    resources :cares
+    resources :posts, only: [:create, :index, :show, :destroy]
+  end
+  get 'search' => 'patients#search'
+
+
 end
