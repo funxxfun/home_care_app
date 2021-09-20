@@ -3,7 +3,7 @@
     <div class="search-form">
       <p>利用者様検索</p>
       <%= form_with url: search_path, method: :get, local: true  do |f| %>
-        <%= f.text_field :search %>
+        <%= f.text_field :search %>様
         <%= f.submit '利用者様検索' %>
       <% end %>
     <div> 
@@ -11,15 +11,16 @@
     <table class="search-resul">
       <% @patients.each do |patient| %>
         <tr><td>利用者様番号：<%= patient.number %></td></tr>
-        <tr><td>お名前：<%= link_to patient.name, patient_path(patient.id) %></td></tr>
+        <tr><td>お名前：<%= link_to patient.name, patient_path(patient.id) %>様</td></tr>
       <% end %>
     </table>
   <% else %>
     <div class="search-form">
       <p>利用者様検索</p>
-      <%= form_with model: @patient, local:true do |f| %>
+      <%= form_with url: search_path, method: :get, local: true  do |f| %>
+      <%#= form_with model: @patient, local:true do |f| %>
       <%#= form_with url: patient_path(patient_id), method: :get, local: true  do |f| %>
-      <!--タイムライン投稿が完成したらURL変更-->
+      <!--タイムライン投稿が完成したらURL変更↓↓-->
       <%#= form_with url: patient_posts_path(patient.id), method: :get, local: true  do |f| %>
         <%= f.text_field :search %>
         <%= f.submit '利用者様検索' %>

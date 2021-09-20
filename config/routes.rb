@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   # get 'top' => 'homes#top'
   resources :genres, only: [ :create, :index, :edit, :update]
   resources :patients, only: [ :new, :create, :index, :show, :edit, :update] do
+  # patientにネストさせる
     resources :cares
-    resources :posts, only: [:create, :index, :show, :destroy]
+    resources :posts, only: [:create, :index, :edit, :show, :destroy]
   end
   get 'search' => 'patients#search'
 

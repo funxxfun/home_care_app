@@ -7,19 +7,22 @@ class CaresController < ApplicationController
   def create
     @care = Care.new(care_params)
     @care.user_id = current_user.id
-    # @cares = patient.find(params[:id])
-    @care.save
-    redirect_to patient_care_path[patient.id, care.id]
+    @patient = Patient.find(params[:patient_id])
+    @care.patient = @patient
+    @care.save!
+    redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
   end
 
   def show
     @care = Care.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
+    @user = current_user
   end
 
   def index
     @patient = Patient.find(params[:patient_id])
     @cares = Care.all
-
+    # @date = @weight
   end
 
 
@@ -28,15 +31,16 @@ class CaresController < ApplicationController
     @patient = Patient.find(params[:patient_id])
   end
   def update
-    care = Care.find(params[:id])
-    redirect_to patient_care_path(care.id)
+    @care = Care.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
+    redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
   end
 
 
   def destroy
     @care = Care.find(params[:id])
-    @bcare.destroy
-    redirect_to patient_cares_path(patient.id)
+    @care.destroy
+    redirect_to patient_cares_path(params[:patient_id])
   end
 
 

@@ -7,12 +7,13 @@
    <table class="table table-striped">
      <tbody>
          <tr><td>利用者番号：<%= @patient.number %></td></tr>
-         <tr><td>お名前：<%= @patient.name %></td></tr>
+         <tr><td>お名前：<%= @patient.name %>様</td></tr>
          <tr><td>性別：<%= @patient.gender %></td></tr>
          <tr><td>生年月日：<%= @patient.birthday %></td></tr>
          <tr><td>ご住所：<%= @patient.address %></td></tr>
          <tr><td>電話番号：<%= @patient.phone_number %></td></tr>
          <tr><td>緊急連絡先：<%= @patient.supporters_phone_number %></td></tr>
+         <tr><td>緊急連絡先　お名前：<%= @patient.supporters_name %>様</td></tr>
          <tr><td>続柄：<%= @patient.relation %></td></tr>
          <tr><td>主病名：<%= @patient.medical_history %></td></tr>
          <tr><td>アレルギー歴：<%= @patient.allergy %></td></tr>

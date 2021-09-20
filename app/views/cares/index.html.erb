@@ -1,13 +1,15 @@
-<%= line_chart Care.group(:weight).count,height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false, discrete: true %>
-
-<%#= line_chart @weight.group_by_day(:created_at, last: 7).average(:weight),height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
-
 <div class = "col-md-8 offset-md-1">
  <div class="header-name">
     <%= @patient.name %>様
   </div>
- 
-   <h2>データ一覧</h2>
+  <div class ="graph">
+   <h2>＜体重推移＞</h2>
+   <%# @cares.each do |care| %>
+   <%= line_chart Care.group(:weight, :created_at).count,height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
+   <%# end %>
+  </div>
+
+   <h2>＜データ一覧＞</h2>
     <table class="table table-striped">
      <thead>
       <tr>
@@ -21,7 +23,7 @@
      <tbody>
        <tr>
        <% @cares.each do |care| %>
-        <td><%#= link_to care.start_time.strftime("%Y-%m-%d"), patient_care_path[patient_id, care_id] %></td>
+        <td><%= link_to care.start_time.strftime("%Y-%m-%d"), patient_care_path(patient_id: @patient.id, id: care.id) %></td>
         <td><%= care.weight %></td>
         <td><%= care.body_temperature %></td>
         <td><%= care.blood_pressure %></td>
@@ -37,13 +39,13 @@
     <%= date.day %>
    <% cares.each do |care| %>
     <div>
-     <%#= link_to care.id,patient_care_path(patient.id) %>
+     <%= link_to care.id, patient_care_path(patient_id: care.patient_id, id: care.id) %>
     </div>
    <% end %>
   <% end %>
 </div>
 
-<%#= link_to "新しく記録する", new_patient_care_path[patient.id,care.id], class: "btn btn-success" %>
+<%= link_to "新しく記録する", new_patient_care_path, class: "btn btn-success" %>
 
 
 </div>

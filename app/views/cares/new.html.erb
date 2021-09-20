@@ -2,9 +2,7 @@
   <div class="header-name">
     <%= @patient.name %>様
   </div>
-  <%#= link_to "データ", patient_care_path(@care.id, @patient.id) %>
   <%= form_with model: [@patient, @care], local:true do |f| %>
-
     <div class = "form-group">
       <%= f.label :記載日 %>
       <%= f.date_field :start_time ,class: 'form-control' %>
