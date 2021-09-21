@@ -22,10 +22,14 @@ class CaresController < ApplicationController
   def index
     @patient = Patient.find(params[:patient_id])
     @cares = Care.all
+    # 配列用の空の箱を準備
     @cares_graph = []
+    # careをeachで順にとりだす
     @cares.each do |care|
+    # ( )の中身を[ ]内の１個１個のデータにしてからの[]の中にpushしてやる
       @cares_graph.push([care.start_time.strftime("%Y-%m-%d"), care.weight.to_s])
     end
+    # モデルにchart_dateを定義したらこれでもいけそう
     # @cares_graph = Care.chart_date
     @user = current_user
   end
@@ -38,7 +42,7 @@ class CaresController < ApplicationController
   def update
     @care = Care.find(params[:id])
     @patient = Patient.find(params[:patient_id])
-    # @care.update(care_params)
+    @care.update!(care_params)
     redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
   end
 
@@ -46,7 +50,7 @@ class CaresController < ApplicationController
   def destroy
     @care = Care.find(params[:id])
     @care.destroy
-    redirect_to patient_cares_path(params[:patient_id])
+    redirect_to patient_cares_path(params[:patient_id]), notice: '記録を削除しました'
   end
 
 

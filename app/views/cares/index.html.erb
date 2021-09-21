@@ -5,8 +5,12 @@
   <div class ="graph">
    <h2>＜体重推移＞</h2>
    <!--careデータのグラフ表示-->
-   <%= line_chart @cares_graph, height: "400px",xtitle: "日", ytitle: "体重",min: 10, max: 100, curve: false %>
+   
+   <%= line_chart @cares_graph, height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 100, curve: false, empty: "データがありません" %>
+   <!--なんのデータを送っているのかを表示できる-->
    <%#= @cares_graph.inspect %>
+   <!--モデルにchart_dateを定義したらこれでもいけそう-->
+   <%#= line_chart @cares.chart_date, xtitle: "日付", ytitle: "体重",min: 30, max: 80, width: "400px", height: "200px", curve: false, empty: "データがありません" %>
   </div>
  <!--careデータのテーブル表示-->
    <h2>＜データ一覧＞</h2>
@@ -34,6 +38,7 @@
     </table>
 
  <!--careが行われた日のカレンダー表示-->
+ <h2>＜ケア実施カレンダー＞</h2>
  <div class="calendar">
   <%= month_calendar events: @cares do |date, cares| %>
     <%= date.day %>
@@ -44,8 +49,5 @@
    <% end %>
   <% end %>
 </div>
-
-<%= link_to "新しく記録する", new_patient_care_path, class: "btn btn-success" %>
-
-
+<%= link_to "新しく記録する", new_patient_care_path, class: "btn btn-success text-white" %>
 </div>
