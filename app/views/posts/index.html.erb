@@ -1,13 +1,13 @@
 <div class = "col-md-8 offset-md-1">
   <div class="header-name">
-    <%#= @patient.name %>様
+    <%= @patient.name %>様
   </div>
   <div class="timeline-form d-flex justify-content-end">
   <!--タイムライン投稿フォーム-->
     <div class="col-md-8 clearfix">
       <div class="float-right test-box">
     <h2>タイムライン投稿</h2>
-    <%= form_with model: @post, local:true do |f| %>
+    <%= form_with url: patient_posts_path(:id), local:true do |f| %>
       <%= f.file_field :image %>
       <h4>コメントを投稿する</h4>
       <%= f.text_area :content %>
@@ -30,11 +30,11 @@
           <% end %>
         </td></tr>
         <%# if @user.id == current_user.id %>
-          <tr><td><%#= link_to 'Edit', edit_post_path(post.id) %></td></tr>
-          <tr><td><%= link_to 'Destroy', post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか?' } %></td></tr>
+          <tr><td><%= link_to 'Edit', edit_post_path(post.id) %></td></tr>
+          <tr><td><%= link_to 'Destroy', patient_post_path(@patient.id, @post.id), method: :delete, data: { confirm: '本当に削除しますか?' } %></td></tr>
         <%# end %>
     </table>
       <% end %>
   </div>
-
+ </div>
 </div>

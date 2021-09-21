@@ -9,25 +9,26 @@
   <nav>
     <div class="navbar-nav ml-auto">
      <div class="navbar nav-left" id="navbarToggleExternalContent">
-      
+
       <!--ご家族がログインした時-->
       <% if user_signed_in? && current_user.genre_name_before_type_cast == 0 %>
       <!--かつpatient検索後、ヘッダーの表示を条件分岐-->
-       <%#= link_to 'タイムライン', patient_posts_path, class: "btn btn-outline-light ms-2 btn-sm" %>
+       <% link_to 'タイムライン', patient_posts_path(:id), class: "btn text-warning ms-2 btn-sm" %>
        <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
-    
+
      <!--ご家族様以外がログインした時-->
       <% elsif user_signed_in? && [1, 2, 3, 4, 5, 6].include?(current_user.genre_name_before_type_cast) %>
       <!--かつpatient検索後、ヘッダーの表示を条件分岐-->
-       <%#= link_to '基本情報   ', patient_path(id), class: "btn text-warning ms-2 btn-sm" %>
-       <%#= link_to 'タイムライン', patient_posts_path, class: "btn text-warning ms-2 btn-sm" %>
-       <%#= link_to 'カレンダー  ', cares_path, class: "btn text-warning ms-2 btn-sm" %>
-       <%#= link_to 'データ ', cares_path, class: "btn text-warning ms-2 btn-sm" %>
-       <%#= link_to '記録     ', new_patient_care_path, class: "btn text-warning ms-2 btn-sm" %>
+
+       <%= link_to '基本情報   ', patient_path(:id), class: "btn text-warning ms-2 btn-sm" %>
+       <%= link_to 'タイムライン', patient_posts_path(:id), class: "btn text-warning ms-2 btn-sm" %>
+       <%= link_to 'カレンダー  ', patient_cares_path(:id), class: "btn text-warning ms-2 btn-sm" %>
+       <%= link_to 'データ ', patient_cares_path(:id), class: "btn text-warning ms-2 btn-sm" %>
+       <%= link_to '記録     ', new_patient_care_path(:id), class: "btn text-warning ms-2 btn-sm" %>
        <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
-     
+
       <!--<--ログインしていない時--OR--patient検索していない時-->-->
       <% else %>
         <%= link_to '新規登録', new_user_registration_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>
