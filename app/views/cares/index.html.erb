@@ -5,9 +5,8 @@
   <div class ="graph">
    <h2>＜体重推移＞</h2>
    <!--careデータのグラフ表示-->
-   <%= line_chart Care.group(:weight, :start_time).count,height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
-   <%#= line_chart @care_graphs, height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false, empty: "データがありません" %>
-   <%#= line_chart @cares.chart_date, xtitle: "日付", ytitle: "体重",min: 30, max: 80, width: "400px", height: "200px", curve: false, empty: "データがありません" %>
+   <%= line_chart @cares_graph, height: "400px",xtitle: "日", ytitle: "体重",min: 10, max: 100, curve: false %>
+   <%#= @cares_graph.inspect %>
   </div>
  <!--careデータのテーブル表示-->
    <h2>＜データ一覧＞</h2>

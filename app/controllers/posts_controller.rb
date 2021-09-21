@@ -17,14 +17,25 @@ class PostsController < ApplicationController
     redirect_to patient_posts_path(patient_id)
   end
   
-  
+  def edit
+    @post = Post.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
+  end
+  def update
+    @post = Post.find(params[:id])
+    # @patient = Patient.find(params[:patient_id])
+    @patient_id = params[:patient_id]
+    @post.update(post_params)
+    redirect_to request.referer
+  end
   
 
 
   def destroy
     @post = Post.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
     post.destroy
-    redirect_to posts_path(post.id)
+    redirect_to request.referer
   end
 
 
