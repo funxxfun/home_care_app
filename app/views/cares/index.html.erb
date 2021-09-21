@@ -4,11 +4,12 @@
   </div>
   <div class ="graph">
    <h2>＜体重推移＞</h2>
-   <%# @cares.each do |care| %>
-   <%= line_chart Care.group(:weight, :created_at).count,height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
-   <%# end %>
+   <!--careデータのグラフ表示-->
+   <%= line_chart Care.group(:weight, :start_time).count,height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false %>
+   <%#= line_chart @care_graphs, height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 80, curve: false, empty: "データがありません" %>
+   <%#= line_chart @cares.chart_date, xtitle: "日付", ytitle: "体重",min: 30, max: 80, width: "400px", height: "200px", curve: false, empty: "データがありません" %>
   </div>
-
+ <!--careデータのテーブル表示-->
    <h2>＜データ一覧＞</h2>
     <table class="table table-striped">
      <thead>
@@ -33,13 +34,13 @@
       </tbody>
     </table>
 
- <!--カレンダー表示-->
+ <!--careが行われた日のカレンダー表示-->
  <div class="calendar">
   <%= month_calendar events: @cares do |date, cares| %>
     <%= date.day %>
    <% cares.each do |care| %>
     <div>
-     <%= link_to care.id, patient_care_path(patient_id: care.patient_id, id: care.id) %>
+     <%= link_to care.user.name, patient_care_path(patient_id: care.patient_id, id: care.id) %>
     </div>
    <% end %>
   <% end %>

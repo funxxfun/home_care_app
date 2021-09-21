@@ -22,7 +22,7 @@ class CaresController < ApplicationController
   def index
     @patient = Patient.find(params[:patient_id])
     @cares = Care.all
-    # @date = @weight
+    @user = current_user
   end
 
 

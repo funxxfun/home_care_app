@@ -10,13 +10,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post.user_id = current_user.id
-    @patient = Patient.find(params[:id])
-    # @post.patient_id = current_patient.id
+    @post.user_id = current_user.id
+    patient_id = params[:patient_id]
+    @post.patient_id = patient_id
     @post.save!
-    redirect_to patient_posts_path(patient)
-    # redirect_to posts_path(@post.id)
+    redirect_to patient_posts_path(patient_id)
   end
+  
+  
+  
 
 
   def destroy
