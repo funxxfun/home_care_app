@@ -5,14 +5,11 @@ class PatientsController < ApplicationController
   end
 
   def index
-    # @patients = Patient.all
     @patients = Patient.search(params[:search])
   end
 
   def show
     @patient = Patient.find(params[:id])
-    # @patient.care_id = current_patient.id
-    # @post =Post.new
   end
 
   def create
