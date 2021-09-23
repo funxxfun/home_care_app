@@ -6,20 +6,24 @@
   <!--タイムライン投稿フォーム-->
     <div class="col-md-8 clearfix">
       <div class="float-right test-box">
-    <h2>タイムライン投稿</h2>
-    <%= form_with model: @post, url: patient_posts_path(@patient.id), local:true do |f| %>
-      <%= f.file_field :image %>
-      <h4>コメントを投稿する</h4>
-      <%= f.text_area :content %>
-      <%= f.submit '投稿する' %>
-    <% end %>
+        <h2>タイムライン投稿</h2>
+        <h6>※写真形式はjpeg,pngしか投稿できません</h6>
+        <%= form_with model: @post, url: patient_posts_path(@patient.id), local:true do |f| %>
+          <%= f.file_field :image %>
+          <h4>コメントを投稿する</h4>
+          <%= f.text_area :content %>
+          <%= f.submit '投稿する' %>
+        <% end %>
       </div>
-  </div>
+    </div>
+    <!--<div>-->
+      <%#= render 'edit', post_edit: @post_edit %>
+    <!--</div>-->
 
   <div class="timeline-index col-md-6 offset-md-1 ">
     <table>
       <% @posts.each do |post| %>
-        <tr>投稿日時：<td><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></td></tr>
+        <tr><td>投稿日時：<%= post.created_at.strftime("%Y-%m-%d %H:%M") %></td></tr>
         <tr><td><%= post.user.name %>さんの投稿</td></tr>
         <tr><td><%= post.content %></td></tr>
         <tr><td>
@@ -29,11 +33,12 @@
              <%= image_tag 'no_image.jpg' %>
           <% end %>
         </td></tr>
-        <%# if @user.id == current_user.id %>
-          <tr><td><%#= link_to '編集する', patient_posts_path(@patient.id), class: "btn btn-success text-white" %></td></tr>
+        <%# if @care.user_id == current_user_id %>
+          <tr><td><%= link_to '編集する', patient_posts_path(patient_id: post.patient_id, id: post.id), method: :post, class: "btn btn-success text-white" %></td></tr>
           <tr><td><%= link_to '削除する', patient_post_path(patient_id: post.patient_id, id: post.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %></td></tr>
         <%# end %>
       <% end %>
     </table>
+    </div>
   </div>
 </div>

@@ -2,6 +2,7 @@
  <div class="header-name">
    <%= @patient.name %>様
  </div>
+  <% if user_signed_in? && [1, 2, 3, 4, 5, 6].include?(current_user.genre_name_before_type_cast) %>
    <h1>利用者様基本情報</h1>
    <p>記録日：<%= @patient.created_at %></p>
    <table class="table table-striped">
@@ -20,8 +21,9 @@
          <tr><td>その他：<%= @patient.information %></td></tr>
      </tbody>
    </table>
-
    <%= link_to "ケア入力を行う", new_patient_care_path(@patient), class: "btn btn-success text-white" %>
-   <%= link_to "タイムラインを投稿する", patient_posts_path(@patient), class: "btn btn-primary text-white" %>
-
+   <%= link_to "タイムラインをみる", patient_posts_path(@patient), class: "btn btn-primary text-white" %>
+  <% else %>
+   <%= link_to "タイムラインをみる", patient_posts_path(@patient), class: "btn btn-primary text-white" %>
+  <% end %>
 </div>

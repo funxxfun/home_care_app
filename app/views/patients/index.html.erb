@@ -1,28 +1,12 @@
+<!--スタッフ用利用者様一覧ページ-->
 <div class = "col-md-8 offset-md-1">
-  <% if user_signed_in? && [1, 2, 3, 4, 5, 6].include?(current_user.genre_name_before_type_cast) %>
-    <div class="search-form">
-      <p>利用者様検索</p>
-      <%= form_with url: search_path, method: :get, local: true  do |f| %>
-        <%= f.text_field :search %>
-        <%= f.submit '利用者様検索' %>
-      <% end %>
-    <div> 
-  
-    <table class="search-resul">
-      <% @patients.each do |patient| %>
-        <tr><td>利用者様番号：<%= patient.number %></td></tr>
-        <tr><td>お名前：<%= link_to patient.name, patient_path(patient.id) %></td></tr>
-      <% end %>
-    </table>
-  <% else %>
-    <div class="search-form">
-      <p>利用者様検索</p>
-      <%= form_with url: patient_path(patient.id), method: :get, local: true  do |f| %>
-      <!--タイムライン投稿完成したらURL変更-->
-      <%#= form_with url: patient_posts_path(patient.id), method: :get, local: true  do |f| %>
-        <%= f.text_field :search %>
-        <%= f.submit '利用者様検索' %>
-      <% end %>
-    <div> 
+<div class="title ">
+ <h2>＜利用者様一覧＞</h2>
+</div>
+ <table>
+  <% @patients.each do |patient| %>
+   <tr><td>利用者様番号：<%= patient.number %></td></tr>
+   <tr><td>お名前：<%= link_to patient.name, patient_path(patient.id) %></td></tr>
   <% end %>
+ </table>
 </div>

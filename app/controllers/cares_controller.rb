@@ -16,7 +16,7 @@ class CaresController < ApplicationController
   def show
     @care = Care.find(params[:id])
     @patient = Patient.find(params[:patient_id])
-    @user = current_user
+    # @user.id = current_user.id
   end
 
   def index
