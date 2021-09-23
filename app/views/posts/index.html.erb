@@ -30,10 +30,8 @@
                <%= image_tag 'no_image.jpg' %>
             <% end %>
           </td></tr>
-          <% if @user == current_user %>
+          <% if post.user.id == current_user.id %>
           <tr><td>
-             <!--indexページでupdateも行うための記載をしたいがうまくいかない・・・-->
-            <%#= link_to '編集する', patient_posts_path(patient_id: post.patient_id, id: post.id), method: :post, class: "btn btn-success text-white" %>
             <%= link_to '編集する', edit_patient_post_path(patient_id: post.patient_id, id: post.id), class: "btn btn-success text-white" %>
             <%= link_to '削除する', patient_post_path(patient_id: post.patient_id, id: post.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %>
           </td></tr>
