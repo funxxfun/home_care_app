@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     #   @post = Post.find(params[:id])
     # else
     @post = Post.new
-    # @post.user_id = current_user.id
+    @post.user_id = current_user.id
     # @post_edit = Post.find(params[:id])
     # end
   end
@@ -17,12 +17,12 @@ class PostsController < ApplicationController
     @post = Post.find_or_initialize_by(content: post_params[:content])
       # indexページでupdateも行うための記載をしたいがうまくいかない・・・
     # if @post.new_record?
+      # indexページでupdateも行うための記載をしたいがうまくいかない・・・
       @post = Post.new(post_params)
       @post.user_id = current_user.id
       patient_id = params[:patient_id]
       @post.patient_id = patient_id
       @post.save!
-      # indexページでupdateも行うための記載をしたいがうまくいかない・・・
     # else
       # @post.update(post_params)
     # end
@@ -55,6 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
+      # byebug
     params.require(:post).permit(:image, :content)
   end
 end
