@@ -18,6 +18,11 @@ class PostsController < ApplicationController
     @post.save!
     redirect_to patient_posts_path(patient_id)
   end
+  
+  def show
+    @post = Post.find(params[:id])
+    @patient = Patient.find(params[:patient_id])
+  end
 
 
   def edit
