@@ -2,8 +2,9 @@ class PostsController < ApplicationController
 
   def index
     @user = current_user
-    @posts = Post.all
+    # @posts = Post.all
     @patient = Patient.find(params[:patient_id])
+    @posts = @patient.posts
     @post = Post.new
     @post.user_id = current_user.id
   end
