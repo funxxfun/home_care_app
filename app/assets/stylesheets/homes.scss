@@ -2,35 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-.top {
-  width: 100%;
-  background-image: url(image/3517910_l.jpg);
-  background-size: cover;
-}
-
-ul {
-  list-style: none;
-}
-
-
-.box-list{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-}
-.box-list li{
-  float: left;
-  border:1px solid #ddd;
-  width: 19%;
-  margin-bottom: 1%;
-  margin-right: 1.25%;
-}
-ul li:last-child{
-  margin-right:0;
-}
-img{
-  width: 100%
-}
