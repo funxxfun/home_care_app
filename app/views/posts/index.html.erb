@@ -22,19 +22,21 @@
           <tr><td style="border:none;"><%= post.user.name %>さんの投稿</td></tr>
           <tr><td style="border:none;"><%= post.content %></td></tr>
           <tr><td style="border:none;">
+           <div>
             <% if post.image.attached? %>
               <%= image_tag post.image.variant(resize:'300x300') %>
             <% else %>
                <%= image_tag 'no_image.jpg' %>
             <% end %>
-            
+           </div>
+           <div>
             <% if post.user.id == current_user.id %>
-          <tr><td>
-            <%= link_to '編集する', edit_patient_post_path(patient_id: post.patient_id, id: post.id), class: "btn btn-success text-white" %>
-            <%= link_to '削除する', patient_post_path(patient_id: post.patient_id, id: post.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %>
-          </td></tr>
+              <tr><td style="border:none;">
+                <%= link_to '編集する', edit_patient_post_path(patient_id: post.patient_id, id: post.id), class: "btn btn-success text-white" %>
+                <%= link_to '削除する', patient_post_path(patient_id: post.patient_id, id: post.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %>
+              </td></tr>
             <% end %>
-          </td></tr>
+           </div>
           <tr><td style="border:none;"><%= link_to "#{post.post_comments.count} コメント", patient_post_path(@patient.id, post.id) %></td></tr>
         <% end %>
       </table>

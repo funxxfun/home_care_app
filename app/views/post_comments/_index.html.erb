@@ -1,14 +1,12 @@
-<table>
-  <tr>
-    <% post.post_comments.each do |post_comment| %>
-      <td><%= post_comment.user.name %></td>
-      <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= post_comment.comment %></td>
-      <td>
-        <% if post_comment.user == current_user %>
-          <div><%= link_to "削除する", post_post_comment_path(post_comment.post, post_comment, post_comment.post.patient), method: :delete %></div>
-        <% end %>
-      </td>
-  </tr>
+<table class="table" >
+  <% post.post_comments.each do |post_comment| %>
+    <tr><td><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M") %></td></tr>
+    <tr><td style="border:none;"><%= post_comment.user.name %></td></tr>
+    <tr><td style="border:none;"><%= post_comment.comment %></td></tr>
+    <tr><td style="border:none;">
+      <% if post_comment.user == current_user %>
+        <div><%= link_to "削除する", patient_post_post_comment_path(post.patient_id, post.id, post_comment.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %></div>
+      <% end %>
+    </td></tr>
       <% end %>
 </table>

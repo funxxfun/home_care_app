@@ -5,13 +5,14 @@ class PostCommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comment = current_user.post_comments.new(post_comment_params)
     comment.post_id = post.id
-    comment.save
-    redirect_to patient_posts_path(post)
+    comment.save!
+    redirect_to patient_post_path(post.patient_id, post.id)
   end
 
   def destroy
-    PostComment.find_by(id: params[:id]).destroy
-    redirect_to patient_post_path(params[:post_id])
+    PostComment.find(post.patient_id, post_id, post_comment.id).destroy
+    # byebug
+    redirect_to patient_post_path(post.patient_id, post.id)
   end
   
   
