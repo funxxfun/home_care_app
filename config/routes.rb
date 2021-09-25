@@ -11,10 +11,10 @@ Rails.application.routes.draw do
     resources :cares
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
   end
   resources :users, only: [:show, :edit, :update]
   get 'search' => 'patients#search'
 
-#
 end

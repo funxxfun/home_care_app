@@ -1,9 +1,8 @@
 class PatientsController < ApplicationController
-  
   before_action :authenticate_user!
 
   def new
-     @patient = Patient.new
+    @patient = Patient.new
   end
 
   def index
@@ -40,12 +39,9 @@ class PatientsController < ApplicationController
     @patients = Patient.search(params[:search])
   end
 
-
-
   private
 
   def patient_params
     params.require(:patient).permit(:number, :name, :gender, :birthday, :address, :phone_number, :supporters_phone_number, :supporters_name, :relation, :main_disease, :medical_history, :allergy, :care_level, :information)
   end
-
 end

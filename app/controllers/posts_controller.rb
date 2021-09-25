@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @posts = @patient.posts
     @post = Post.new
     @post.user_id = current_user.id
-
+    @post_comment = PostComment.new
   end
 
   def create
@@ -25,14 +25,13 @@ class PostsController < ApplicationController
     @patient = Patient.find(params[:patient_id])
     @post = Post.find_by(patient_id: @patient.id, id: params[:id] )
     @post_comment = PostComment.new
-    # byebug
   end
-
 
   def edit
     @post = Post.find(params[:id])
     @patient = Patient.find(params[:patient_id])
   end
+  
   def update
     post = Post.find(params[:id])
     patient_id = params[:patient_id]
@@ -40,13 +39,11 @@ class PostsController < ApplicationController
     redirect_to patient_posts_path(patient_id)
   end
 
-
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to patient_posts_path(params[:patient_id])
   end
-
 
   private
 

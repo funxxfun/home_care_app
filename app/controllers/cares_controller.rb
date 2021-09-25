@@ -1,5 +1,4 @@
 class CaresController < ApplicationController
-  
   before_action :authenticate_user!
   
   def new
@@ -36,11 +35,11 @@ class CaresController < ApplicationController
     @user = current_user
   end
 
-
   def edit
     @care = Care.find(params[:id])
     @patient = Patient.find(params[:patient_id])
   end
+  
   def update
     @care = Care.find(params[:id])
     @patient = Patient.find(params[:patient_id])
@@ -48,18 +47,15 @@ class CaresController < ApplicationController
     redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
   end
 
-
   def destroy
     @care = Care.find(params[:id])
     @care.destroy
     redirect_to patient_cares_path(params[:patient_id]), notice: '記録を削除しました'
   end
 
-
   private
+  
   def care_params
     params.require(:care).permit(:weight,:body_temperature, :blood_pressure, :pulse_rate, :detail, :start_time)
   end
-
-
 end

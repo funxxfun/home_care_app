@@ -16,11 +16,9 @@ class PostCommentsController < ApplicationController
     redirect_to patient_post_path(post.patient_id, post.id)
   end
   
-  
   private
 
   def post_comment_params
     params.require(:post_comment).permit(:comment)
   end
-  
 end
