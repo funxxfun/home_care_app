@@ -16,6 +16,7 @@
      <thead>
       <tr>
        <th>記録日</th>
+       <th>記録者</th>
        <th>体重</th>
        <th>体温</th>
        <th>血圧</th>
@@ -26,6 +27,7 @@
        <tr>
        <% @cares.each do |care| %>
         <td><%= link_to care.start_time.strftime("%Y-%m-%d"), patient_care_path(patient_id: @patient.id, id: care.id) %></td>
+        <td><%= care.user.name %></td>
         <td><%= care.weight %></td>
         <td><%= care.body_temperature %></td>
         <td><%= care.blood_pressure %></td>
@@ -47,5 +49,5 @@
    <% end %>
   <% end %>
 </div>
-<%= link_to "新しく記録する", new_patient_care_path, class: "btn btn-success text-white" %>
+<%= link_to "本日の記録を入力する", new_patient_care_path, class: "btn btn-success text-white" %>
 </div>

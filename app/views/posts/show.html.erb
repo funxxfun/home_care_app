@@ -2,7 +2,7 @@
  <%= render 'patients/information' %>
    <div>
     <h2>投稿内容</h2>
-     <table class="">
+     <table>
       <p>投稿日時：<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
       <p>投稿者：<%= @post.user.name %></p>
         <tr><td><%= @post.content %></td></tr>
@@ -13,18 +13,21 @@
            <%= image_tag 'no_image.jpg' %>
         <% end %>
         </td></tr>
-        <tr><td><p>コメント件数：<%#= @post.post_comments.count %></p></td></tr>
         <% if @post.user.id == current_user.id %>
           <tr><td>
             <%= link_to '編集する', edit_patient_post_path(patient_id: @post.patient_id, id: @post.id), class: "btn btn-success text-white" %>
             <%= link_to '削除する', patient_post_path(patient_id: @post.patient_id, id: @post.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %>
           </td></tr>
         <% end %>
+        <div>
+        　<tr><td>
+            <%= form_with(model:[@patient, @post, @post_comment], local: true) do |f| %>
+            　<%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+            　<%= f.submit "送信する" %>
+            <% end %>
+        　</td></tr>
+         </div>
      </table>
-     <div class="post_comments">
-       <%#= render 'post_comments/index', post: @post, post_comment: @post_comment %>
-     </div>
-
     </div>
     <div>
       <%= link_to "他の投稿をみる", patient_posts_path(@patient.id) %>

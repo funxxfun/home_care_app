@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @user = current_user
-    # @posts = Post.all
     @patient = Patient.find(params[:patient_id])
     @posts = @patient.posts
     @post = Post.new
     @post.user_id = current_user.id
+
   end
 
   def create
@@ -20,8 +21,9 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @patient = Patient.find(params[:patient_id])
+    @post = Post.find_by(patient_id: @patient.id, id: params[:id] )
     @post_comment = PostComment.new
     # byebug
   end

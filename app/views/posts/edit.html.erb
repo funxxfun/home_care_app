@@ -1,9 +1,9 @@
-<div class = "col-md-8 offset-md-1">
+<div class = "col-md-8 offset-md-1 ">
   <h2>＜タイムライン編集＞</h2>
   <%= form_with model: @post, url: patient_post_path(@patient.id), method: :patch, local:true do |f| %>
     <%= f.file_field :image %>
     <h4>コメントを編集する</h4>
-    <%= f.text_area :content %>
-    <%= f.submit '更新する' %>
+    <%= f.text_area :content,class: 'form-control' %>
+    <%= f.submit '更新する', class: "btn btn-success" %>
   <% end %>
 </div>

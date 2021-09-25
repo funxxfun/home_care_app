@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -7,12 +8,12 @@ Rails.application.routes.draw do
   # get 'top' => 'homes#top'
   resources :genres, only: [ :create, :index, :edit, :update]
   resources :patients, only: [ :new, :create, :index, :show, :edit, :update] do
-  # patientにネストさせる
     resources :cares
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
     end
   end
+  resources :users, only: [:show, :edit, :update]
   get 'search' => 'patients#search'
 
 #

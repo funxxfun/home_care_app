@@ -10,6 +10,7 @@
       <div class="navbar nav-left" id="navbarToggleExternalContent">
        <% if user_signed_in? %>
         <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
+        <%#= link_to 'マイページ', user_path(current_user.id), class: "btn btn-outline-light text-white ms-2 btn-sm" %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
        <% else %>
          <%= link_to '新規登録', new_user_registration_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>

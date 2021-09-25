@@ -1,4 +1,7 @@
 class CaresController < ApplicationController
+  
+  before_action :authenticate_user!
+  
   def new
     @care = Care.new
     @patient = Patient.find(params[:patient_id])
