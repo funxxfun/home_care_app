@@ -5,39 +5,18 @@
       <%= image_tag 'image/twitter_header_photo_1.png', size: "100x80", alt: "アイコン" %>
      <% end %>
    </div>
-
-  <nav>
-    <div class="navbar-nav ml-auto">
-     <div class="navbar nav-left" id="navbarToggleExternalContent">
-
-      <!--ログインかつpatient検索後、ヘッダーの表示を条件分岐-->
-      <!--ご家族がログインした時-->
-      <% if user_signed_in? && current_user.genre_name_before_type_cast == 0 %>
-       <!--patient検索ヒット後に表示-->
-       <% link_to 'タイムライン', patient_posts_path(:id), class: "btn text-warning ms-2 btn-sm" %>
-       <!--patient検索されていないときは↓↓のみ表示-->
-       <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
-       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
-
-     <!--ご家族様以外がログインした時-->
-      <% elsif user_signed_in? && [1, 2, 3, 4, 5, 6].include?(current_user.genre_name_before_type_cast) %>
-       <!--patient検索ヒット後に表示-->
-       <%= link_to '基本情報   ', patient_path(:id), class: "btn text-warning ms-2 btn-sm" %>
-       <%= link_to 'タイムライン', patient_posts_path(:id), class: "btn text-warning ms-2 btn-sm" %>
-       <%= link_to 'カレンダー  ', patient_cares_path(:id), class: "btn text-warning ms-2 btn-sm" %>
-       <%= link_to 'データ ', patient_cares_path(:id), class: "btn text-warning ms-2 btn-sm" %>
-       <%= link_to '記録     ', new_patient_care_path(:id), class: "btn text-warning ms-2 btn-sm" %>
-       <!--patient検索されていないときは↓↓のみ表示-->
-       <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
-       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
-
-      <!--<--ログインしていない時--OR--patient検索していない時-->-->
-      <% else %>
-        <%= link_to '新規登録', new_user_registration_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>
-        <%= link_to 'ログイン', new_user_session_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>
-      <% end %>
+   <nav>
+     <div class="navbar-nav ml-auto">
+      <div class="navbar nav-left" id="navbarToggleExternalContent">
+       <% if user_signed_in? %>
+        <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
+       <% else %>
+         <%= link_to '新規登録', new_user_registration_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>
+         <%= link_to 'ログイン', new_user_session_path,class: "btn btn-outline-light text-warning ms-4 btn-sm" %>
+       <% end %>
       </div>
-      </div>
-    </nav>
-  </div>
+     </div>
+   </nav>
+ </div>
 </header>

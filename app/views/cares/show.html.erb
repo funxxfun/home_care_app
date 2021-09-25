@@ -1,7 +1,5 @@
 <div class = "col-md-4 offset-md-1">
-   <div class="header-name">
-    <%= @patient.name %>様
-   </div>
+ <%= render 'patients/information' %>
    <div>
       <h2>サービス提供記録</h2>
       <p>記録日：<%= @care.start_time.strftime("%Y-%m-%d") %></p>

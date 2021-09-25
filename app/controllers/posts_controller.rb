@@ -22,6 +22,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @patient = Patient.find(params[:patient_id])
+    @post_comment = PostComment.new
+    # byebug
   end
 
 

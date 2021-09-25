@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :patients, only: [ :new, :create, :index, :show, :edit, :update] do
   # patientにネストさせる
     resources :cares
-    resources :posts
+    resources :posts do
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
   get 'search' => 'patients#search'
 

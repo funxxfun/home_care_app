@@ -1,7 +1,5 @@
 <div class = "col-md-8 offset-md-1">
-  <div class="header-name">
-    <%= @patient.name %>様
-  </div>
+    <%= render 'patients/information' %>
   <div class="timeline-form d-flex justify-content-end">
   <!--タイムライン投稿フォーム-->
     <div class="col-md-8 clearfix">
@@ -30,6 +28,7 @@
                <%= image_tag 'no_image.jpg' %>
             <% end %>
           </td></tr>
+          <tr><td><%#= link_to "#{post.post_comments.count} コメント", post_path(post_.id) %></td></tr>
         <% end %>
       </table>
     </div>
