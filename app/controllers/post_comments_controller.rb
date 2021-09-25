@@ -10,7 +10,8 @@ class PostCommentsController < ApplicationController
   end
 
   def destroy
-    PostComment.find(post.patient_id, post_id, post_comment.id).destroy
+    post = Post.find(params[:post_id])
+    PostComment.find(params[:id]).destroy
     # byebug
     redirect_to patient_post_path(post.patient_id, post.id)
   end
