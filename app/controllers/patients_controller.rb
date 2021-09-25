@@ -16,9 +16,9 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
-      redirect_to patients_path, notice: "You have creted genre successfully."
+      redirect_to patients_path
     else
-      render :index
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class PatientsController < ApplicationController
   def update
     @patient = Patient.find(params[:id])
     if @patient.update(patient_params)
-      redirect_to patient_path, notice: "You have updated genre successfully."
+      redirect_to patient_path
     else
       render :edit
     end

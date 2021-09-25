@@ -1,4 +1,4 @@
-# adminログイン画面の職種登録関連を日本語化
+# adminログイン画面、エラーメッセージの職種登録関連を日本語化
 ja:
   activerecord:
     models:
@@ -19,19 +19,32 @@ ja:
         user_id: "記載者"
         created_at: "作成日"
         number: "利用者様番号"
-        name: "ご氏名"
+        name: "お名前"
         gender: "性別"
         birthday: "生年月日"
         address: "ご住所"
         phone_number: "電話番号"
         supporters_phone_number: "緊急連絡先"
-        supporters_name: "緊急連絡先　ご氏名"
+        supporters_name: "緊急連絡先の方のお名前"
         relation: "続柄"
         main_disease: "主病名"
         medical_history: "既往歴"
         allergy: "アレルギー"
         care_level: "介護度"
         information: "その他"
+      care:
+        weight: "体重"
+        body_temperature: "体温"
+        blood_pressure: "血圧"
+        pulse_rate: "脈拍"
+        detail: "ケア内容"
+        start_time: "記録日"
+      post:
+        image_id: "タイムライン写真"
+        content: "タイムライン投稿"
+      post_comments:
+        comment: "コメント"
+        
 
   active_admin:
     dashboard: "ダッシュボード"

@@ -1,6 +1,7 @@
 <div class = "col-md-8 offset-md-1">
  <%= render 'patients/information' %>
   <%= form_with model: [@patient, @care], local:true do |f| %>
+   <%= render 'layouts/error_messages', model: f.object %>
     <div class = "form-group">
       <%= f.label :記載日 %>
       <%= f.date_field :start_time ,class: 'form-control' %>

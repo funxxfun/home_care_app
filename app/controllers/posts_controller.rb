@@ -16,8 +16,13 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     patient_id = params[:patient_id]
     @post.patient_id = patient_id
-    @post.save!
-    redirect_to patient_posts_path(patient_id)
+    if @post.save
+      redirect_to patient_posts_path(patient_id)
+    else
+      @patient = Patient.find(params[:patient_id])
+      @posts = @patient.posts
+      render :index
+    end
   end
   
   def show
@@ -33,10 +38,14 @@ class PostsController < ApplicationController
   end
   
   def update
-    post = Post.find(params[:id])
-    patient_id = params[:patient_id]
-    post.update!(post_params)
-    redirect_to patient_posts_path(patient_id)
+    @post = Post.find(params[:id])
+    @patient_id = params[:patient_id]
+    if @post.update(post_params)
+      redirect_to patient_posts_path(@patient_id)
+    else
+      @patient = Patient.find(params[:patient_id])
+      render :edit
+    end
   end
 
   def destroy

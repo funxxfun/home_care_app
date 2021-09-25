@@ -11,8 +11,11 @@ class CaresController < ApplicationController
     @care.user_id = current_user.id
     @patient = Patient.find(params[:patient_id])
     @care.patient = @patient
-    @care.save!
-    redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
+    if @care.save
+      redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -43,8 +46,11 @@ class CaresController < ApplicationController
   def update
     @care = Care.find(params[:id])
     @patient = Patient.find(params[:patient_id])
-    @care.update!(care_params)
-    redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
+    if @care.update(care_params)
+      redirect_to patient_care_path(patient_id: @patient.id, id: @care.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
