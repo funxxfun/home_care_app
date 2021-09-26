@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: ENV["OWENER_ADDRESS"], password: ENV["ADMIN_PASSWORD"], password_confirmation: ENV["ADMIN_PASSWORD"]) if Rails.env.development?
+AdminUser.create!(email: ENV["OWENER_ADDRESS"], password: ENV["ADMIN_PASSWORD"], password_confirmation: ENV["ADMIN_PASSWORD"])
 
 # 職種のサンプルデータ
 User.create!(name: "山田かなこ",
