@@ -9,13 +9,16 @@
          <tr><td>お名前：<%= @patient.name %>様</td></tr>
          <tr><td>性別：<%= @patient.gender %></td></tr>
          <tr><td>生年月日：<%= @patient.birthday %></td></tr>
+         <tr><td>年齢：<%= (Date.today.strftime("%Y%m%d").to_i - @patient.birthday.strftime("%Y%m%d").to_i) / 10000 %>歳</td></tr>
          <tr><td>ご住所：<%= @patient.address %></td></tr>
          <tr><td>電話番号：<%= @patient.phone_number %></td></tr>
          <tr><td>緊急連絡先：<%= @patient.supporters_phone_number %></td></tr>
          <tr><td>緊急連絡先　お名前：<%= @patient.supporters_name %>様</td></tr>
          <tr><td>続柄：<%= @patient.relation %></td></tr>
-         <tr><td>主病名：<%= @patient.medical_history %></td></tr>
+         <tr><td>主病名：<%= @patient.main_disease %></td></tr>
+         <tr><td>既往歴：<%= @patient.medical_history %></td></tr>
          <tr><td>アレルギー歴：<%= @patient.allergy %></td></tr>
+         <tr><td>介護度：<%= @patient.care_level %></td></tr>
          <tr><td>その他：<%= @patient.information %></td></tr>
      </tbody>
    </table>
