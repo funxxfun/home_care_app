@@ -149,7 +149,7 @@ Post.create!(user_id: 5,
              content: "楽しそうに昨日のデイケアの様子をお話ししてくださいました。",
             # image_id: "",
              created_at: "2021-9-9 10:00")
-PostComment.create!(user_id: 5,
+PostComment.create!(user_id: 0,
                     patient_id: 1,
                     post_id: 1,
                     comment: "いつも本当にありがとうございます。",

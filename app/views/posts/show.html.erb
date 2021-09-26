@@ -23,7 +23,8 @@
      <table class="table">
         <!--投稿に対するコメント新規作成-->
         　<tr><td>
-            <%= form_with(model: @post_comment, url: patient_post_post_comments_path(@patient.id, @post.id),  local: true) do |f| %>
+        　  <!--非同期通信にするために local:true 削除-->
+            <%= form_with(model: @post_comment, url: patient_post_post_comments_path(@patient.id, @post.id)) do |f| %>
             　<%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
             　<%= f.submit "送信する" %>
             <% end %>
