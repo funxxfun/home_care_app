@@ -31,6 +31,8 @@
                <%= image_tag 'no_image.jpg' %>
             <% end %>
            </div>
+          <tr><td style="border:none;">コメント<%= link_to "#{post.post_comments.count}件 ", patient_post_path(@patient.id, post.id) %></td></tr>
+          <tr><td style="border:none;"><%= render 'favorites/favorite', post: post %></td></tr>
            <div>
             <% if post.user.id == current_user.id %>
               <tr><td style="border:none;">
@@ -39,10 +41,6 @@
               </td></tr>
             <% end %>
            </div>
-          <tr><td style="border:none;">コメント<%= link_to "#{post.post_comments.count}件 ", patient_post_path(@patient.id, post.id) %></td></tr>
-          <tr><td style="border:none;">
-            <%= render 'favorites/favorite', post: @post %>
-          </td></tr>
         <% end %>
       </table>
     </div>

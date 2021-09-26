@@ -20,6 +20,13 @@
      </tbody>
    </table>
   <% else %>
-   <%= link_to "タイムラインをみる", patient_posts_path(@patient), class: "btn btn-primary text-white" %>
+   <div class="container">
+    <%= link_to "タイムラインをみる", patient_posts_path(@patient), class: "btn btn-primary text-white" %>
+    <div class = "jumbotron">
+     <div class="search-image">
+        <%= image_tag '22100004_l.jpg', class: "card-img imag-fluid rounded-0"  %>
+      </div>
+     </div>
+    </div>
   <% end %>
 </div>
