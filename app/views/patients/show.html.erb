@@ -19,6 +19,9 @@
          <tr><td>その他：<%= @patient.information %></td></tr>
      </tbody>
    </table>
+    <% if user_signed_in? && current_user.genre_name_before_type_cast == 6 %>
+     <%= link_to '編集する', edit_patient_path(@patient.id), class: "btn btn-success text-white" %>
+    <% end %>
   <% else %>
    <div class="container">
     <%= link_to "タイムラインをみる", patient_posts_path(@patient), class: "btn btn-primary text-white" %>
