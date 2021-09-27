@@ -146,9 +146,11 @@ Care.create!(user_id: 3,
 
 Post.create!(user_id: 5,
              patient_id: 1,
+            # image: File.open(Rails.root.join("app/assets/images/smile.jpg")),
              content: "楽しそうに昨日のデイケアの様子をお話ししてくださいました。",
-            # image_id: "",
              created_at: "2021-9-9 10:00")
+
+
 PostComment.create!(user_id: 7,
                     patient_id: 1,
                     post_id: 1,
