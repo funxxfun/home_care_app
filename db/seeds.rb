@@ -8,11 +8,6 @@
 AdminUser.create!(email: ENV["OWENER_ADDRESS"], password: ENV["ADMIN_PASSWORD"], password_confirmation: ENV["ADMIN_PASSWORD"])
 
 # 職種のサンプルデータ
-User.create!(name: "山田かなこ",
-             genre_name: 0,
-             email: "f@example.com",
-             password: "password",
-             password_confirmation: "password")
 User.create!(name: "医師桃子",
              genre_name: 1,
              email: "d@example.com",
@@ -41,6 +36,11 @@ User.create!(name: "介護みどり",
 User.create!(name: "支援一郎",
              genre_name: 6,
              email: "m@example.com",
+             password: "password",
+             password_confirmation: "password")
+User.create!(name: "山田かなこ",
+             genre_name: 0,
+             email: "f@example.com",
              password: "password",
              password_confirmation: "password")
 
@@ -149,7 +149,7 @@ Post.create!(user_id: 5,
              content: "楽しそうに昨日のデイケアの様子をお話ししてくださいました。",
             # image_id: "",
              created_at: "2021-9-9 10:00")
-PostComment.create!(user_id: 0,
+PostComment.create!(user_id: 7,
                     patient_id: 1,
                     post_id: 1,
                     comment: "いつも本当にありがとうございます。",
