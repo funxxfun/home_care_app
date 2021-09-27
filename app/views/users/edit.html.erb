@@ -3,6 +3,12 @@
     <h1 class="text-success text-left">＜プロフィール編集＞</h1>
       <table>
         <%= form_with model:@user, local:true do |f| %>
+          <% if @user.errors.any? %>
+            <%= @user.errors.count %>件のエラーが発生しました<br>
+            <% @user.errors.full_messages.each do |message| %>
+              <%= message %>
+            <% end %>
+          <% end %>
           <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
           <%= f.select :genre_name, User.genre_names.keys.to_a %>
           <%= f.submit "変更を保存", class: "btn btn-success" %>

@@ -11,10 +11,16 @@
      <div class="navbar nav-left" id="navbarToggleExternalContent">
       <% if user_signed_in? && current_user.genre_name_before_type_cast == 0 %>
       <!--ご家族様がログイン-->
+      <div>
+       <h1 class="text-primary text-center">ログイン：<%= current_user.name %>様</h1>
+      </div>
        <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
      <!--ご家族様以外がログインした時-->
       <% elsif user_signed_in? && [1, 2, 3, 4, 5, 6].include?(current_user.genre_name_before_type_cast) %>
+       <!--<div>-->
+        <span class="navbar nav-center text-primary">ログイン：<%= current_user.name %> 様</span><br>
+       <!--</div>-->
        <%= link_to '利用者様検索', search_path, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
        <%= link_to '記録者情報', user_path(current_user.id), class: "btn btn-outline-light text-white ms-2 btn-sm" %>
        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-light text-white ms-2 btn-sm" %>
