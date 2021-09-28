@@ -1,11 +1,11 @@
 <div class = "col-md-8 offset-md-1">
     <%= render 'patients/information' %>
-  <div class="timeline-form d-flex justify-content-end">
-  <!--タイムライン投稿フォーム-->
-    <div class="col-md-8 clearfix">
-      <div class="float-right test-box ">
+</div>
 
-        <h2>タイムライン投稿</h2>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-5">
+      <h2>タイムライン投稿</h2>
         <h6>※写真形式はjpeg,pngしか投稿できません</h6>
         <%= form_with model: @post, url: patient_posts_path(@patient.id), local:true do |f| %>
          <%= render 'layouts/error_messages', model: f.object %>
@@ -14,10 +14,8 @@
           <%= f.text_area :content, placeholder: "タイムライン投稿をここに" %>
           <%= f.submit '投稿する' %>
         <% end %>
-      </div>
     </div>
-
-    <div class="timeline-index col-md-6 offset-md-1 ">
+    <div class="col col-lg-5">
       <table class="table">
         <% @posts.each do |post| %>
           <tr><td>投稿日時：<%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), patient_post_path(patient_id: @patient.id, id: post.id) %></td></tr>
@@ -46,3 +44,4 @@
     </div>
   </div>
 </div>
+      

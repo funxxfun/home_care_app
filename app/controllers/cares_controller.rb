@@ -1,6 +1,6 @@
 class CaresController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @care = Care.new
     @patient = Patient.find(params[:patient_id])
@@ -42,7 +42,7 @@ class CaresController < ApplicationController
     @care = Care.find(params[:id])
     @patient = Patient.find(params[:patient_id])
   end
-  
+
   def update
     @care = Care.find(params[:id])
     @patient = Patient.find(params[:patient_id])
@@ -60,7 +60,7 @@ class CaresController < ApplicationController
   end
 
   private
-  
+
   def care_params
     params.require(:care).permit(:weight,:body_temperature, :blood_pressure, :pulse_rate, :detail, :start_time)
   end
