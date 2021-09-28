@@ -25,7 +25,7 @@ class CaresController < ApplicationController
 
   def index
     @patient = Patient.find(params[:patient_id])
-    @cares = @patient.cares
+    @cares = @patient.cares.order(start_time: :desc)
     # 配列用の空の箱を準備
     @cares_graph = []
     # careをeachで順にとりだす
