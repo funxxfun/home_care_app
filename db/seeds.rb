@@ -45,7 +45,8 @@ User.create!(name: "山田かなこ",
              password_confirmation: "password")
 
 # 利用者様のサンプルデータ
-Patient.create!(number: 1,
+Patient.create!(created_at: "2021-9-1",
+                number: 1,
                 name: "山田花子",
                 gender: 2,
                 birthday: "1930-01-01",
@@ -57,9 +58,11 @@ Patient.create!(number: 1,
                 main_disease: "高血圧、高脂血症、狭心症",
                 medical_history: "脳梗塞、早期胃がん（2000年7月:胃1/3切除術）",
                 allergy: "なし",
-               information: "娘様ご同居。歌うことや絵を描くことが好き。"
+                care_level: 4,
+                information: "娘様ご同居。歌うことや絵を描くことが好き。"
                 )
-Patient.create!(number: 2,
+Patient.create!(created_at: "2021-9-1",
+                number: 2,
                 name: "鈴木一郎",
                 gender: 1,
                 birthday: "1940-02-02",
@@ -71,6 +74,7 @@ Patient.create!(number: 2,
                 main_disease: "脳梗塞後遺症",
                 medical_history: "誤嚥性肺炎（2019.12〜2020.1 入院歴あり）",
                 allergy: "青魚アレルギー",
+                care_level: 3,
                 information: "妹様は佐賀にご住居"
                  )
 
