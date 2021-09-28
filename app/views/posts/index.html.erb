@@ -28,7 +28,7 @@
             <% if post.image.attached? %>
               <%= image_tag post.image.variant(resize:'300x300') %>
             <% else %>
-               <%= image_tag 'no_image.jpg', size: '300x300'  %>
+               <%= image_tag 'no_image.jpg', resize: '300x300'  %>
             <% end %>
            </div>
           <tr><td style="border:none;">コメント<%= link_to "#{post.post_comments.count}件 ", patient_post_path(@patient.id, post.id) %></td></tr>
