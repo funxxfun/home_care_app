@@ -8,9 +8,9 @@
         <tr><td><%= @post.content %></td></tr>
         <tr><td>
         <% if @post.image.attached? %>
-          <%= image_tag @post.image.variant(resize: '300x300') %>
+          <%= image_tag @post.image.variant(resize:'300x300') %>
         <% else %>
-           <%= image_tag 'no_image.jpg', resize: '300x300' %>
+           <%= image_tag 'no_image.jpg', resize:'100x100' %>
         <% end %>
         </td></tr>
         <% if @post.user.id == current_user.id %>
@@ -25,7 +25,7 @@
         　<tr><td>
         　  <!--非同期通信にするために local:true 削除-->
             <%= form_with(model: @post_comment, url: patient_post_post_comments_path(@patient.id, @post.id)) do |f| %>
-            　<%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+            　<%= f.text_area :comment, rows:'3',placeholder: "コメント入力をここに" %>
             　<%= f.submit "送信する" %>
             <% end %>
         　</td></tr>

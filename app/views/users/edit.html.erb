@@ -9,7 +9,7 @@
               <%= message %>
             <% end %>
           <% end %>
-          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"お名前"%>様
           <%= f.select :genre_name, User.genre_names.keys.to_a %>
           <%= f.submit "変更を保存", class: "btn btn-success" %>
         <% end %>

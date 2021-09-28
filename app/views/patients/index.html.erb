@@ -2,14 +2,14 @@
   <div class = "jumbotron col-md-8 offset-md-1">
     <h2>利用者様検索</h2>
     <%= form_with url: patients_path, method: :get, local: true  do |f| %>
-      <%= f.text_field :search %>様
+      <%= f.text_field :search, placeholder: "利用者様のお名前を入力してください"  %>様
       <%= f.submit '検索する' %>
     <% end %>
     <table>
      <!--<h2>＜利用者様一覧＞</h2>-->
       <% @patients.each do |patient| %>
        <tr><td>利用者様番号：<%= patient.number %></td></tr>
-       <tr><td>お名前：<%= link_to patient.name, patient_path(patient.id) %></td></tr>
+       <tr><td>お名前：<%= link_to patient.name, patient_path(patient.id) %>様</td></tr>
       <% end %>
     </table>
      <% if user_signed_in? && [1, 2, 3, 4, 5, 6].include?(current_user.genre_name_before_type_cast) %>

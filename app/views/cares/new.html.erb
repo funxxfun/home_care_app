@@ -6,15 +6,15 @@
       <%= f.label :記載日 %>
       <%= f.date_field :start_time ,class: 'form-control' %>
       <h4>体重</h4>
-        <%= f.text_field :weight,class: 'form-control' %>
+        <p><%= f.text_field :weight,class: 'form-control',placeholder: "数字を入力：（例）50" %>
       <h4>体温</h4>
-        <%= f.text_field :body_temperature,class: 'form-control' %>
+        <%= f.text_field :body_temperature,class: 'form-control',placeholder: "数字を入力：（例）36.6" %>
       <h4>血圧</h4>
-        <%= f.text_field :blood_pressure,class: 'form-control' %>
+        <%= f.text_field :blood_pressure,class: 'form-control',placeholder: "数字を入力：（例）120／90" %>
       <h4>脈拍</h4>
-        <%= f.text_field :pulse_rate,class: 'form-control' %>
+        <%= f.text_field :pulse_rate,class: 'form-control',placeholder: "数字を入力：（例）60" %>
       <h4>ケア内容</h4>
-        <%= f.text_field :detail,class: 'form-control' %>
+        <%= f.text_field :detail,class: 'form-control',placeholder: "ケア内容を入力" %>
     </div>
     <div class = "form-group">
       <%= f.submit '記録を登録する', class: "btn btn-success" %>
