@@ -27,11 +27,13 @@ class CaresController < ApplicationController
     @patient = Patient.find(params[:patient_id])
     @cares = @patient.cares.order(start_time: :desc)
     # 配列用の空の箱を準備
-    @cares_graph = []
+    @cares_weight_graph = []
+    @cares_body_temperature_graph = []
     # careをeachで順にとりだす
     @cares.each do |care|
     # ( )の中身を[ ]内の１個１個のデータにしてからの[]の中にpushしてやる
-      @cares_graph.push([care.start_time.strftime("%Y-%m-%d"), care.weight.to_s])
+      @cares_weight_graph.push([care.start_time.strftime("%Y-%m-%d"), care.weight.to_s])
+      @cares_body_temperature_graph.push([care.start_time.strftime("%Y-%m-%d"), care.body_temperature.to_s])
     end
     # モデルにchart_dateを定義したらこれでもいけそう
     # @cares_graph = Care.chart_date

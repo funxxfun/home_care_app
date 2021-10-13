@@ -1,14 +1,22 @@
 <div class = "col-md-8 offset-md-1">
   <%= render 'patients/information' %>
-  <div class ="graph">
-   <h2>＜体重推移＞</h2>
-   <!--careデータのグラフ表示-->
-   <h5>※同じ日の体重は最新のもののみが表示されます</h5>
-   <%= line_chart @cares_graph, height: "400px",xtitle: "日", ytitle: "体重",min: 30, max: 100, curve: false, empty: "データがありません" %>
-   <!--なんのデータを送っているのかを表示できる-->
-   <%#= @cares_graph.inspect %>
-   <!--モデルにchart_dateを定義したらこれでもいけそう-->
-   <%#= line_chart @cares.chart_date, xtitle: "日付", ytitle: "体重",min: 30, max: 80, width: "400px", height: "200px", curve: false, empty: "データがありません" %>
+  <div class ="row graph">
+   <div class ="col-md-6 weight-graph">
+    <h2>＜体重推移＞</h2>
+    <!--体重データのグラフ表示-->
+    <h6>※同じ日の体重は最新のもののみが表示されます</h6>
+    <%= line_chart @cares_weight_graph, height: "300px",xtitle: "日", ytitle: "体重",min: 30, max: 100, curve: false, empty: "データがありません" %>
+    <!--なんのデータを送っているのかを表示できる-->
+    <%#= @cares_graph.inspect %>
+    <!--モデルにchart_dateを定義したらこれでもいけそう-->
+    <%#= line_chart @cares.chart_date, xtitle: "日付", ytitle: "体重",min: 30, max: 80, width: "400px", height: "200px", curve: false, empty: "データがありません" %>
+   </div>
+   <div class ="col-md-6 body_temperature-graph">
+    <h2>＜体温推移＞</h2>
+    <!--c体温データのグラフ表示-->
+    <h6>※同じ日の体温は最新のもののみが表示されます</h6>
+    <%= line_chart @cares_body_temperature_graph, height: "300px",xtitle: "日", ytitle: "体温",min: 35, max: 40, curve: false, empty: "データがありません" %>
+   </div>
   </div>
  <!--careデータのテーブル表示-->
    <h2>＜データ一覧＞</h2>
