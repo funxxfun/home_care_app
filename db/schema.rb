@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_073324) do
+ActiveRecord::Schema.define(version: 2021_10_13_112018) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_073324) do
   create_table "cares", force: :cascade do |t|
     t.integer "user_id"
     t.integer "patient_id"
-    t.integer "weight"
-    t.integer "body_temperature"
+    t.float "weight"
+    t.float "body_temperature"
     t.string "blood_pressure"
     t.integer "pulse_rate"
     t.text "detail"
