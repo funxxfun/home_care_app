@@ -1,25 +1,56 @@
-<div class = "col-md-8 offset-md-1">
+<div class = "col-lg-6 md-8 offset-md-1">
   <%= render 'patients/information' %>
+  <!--タブ部分-->
+  <div class="raw tab_area">
+   <ul class="col-lg-6 md-6 sm-6 tab-list list-unstyled">
+   <h6>※タブをクリックすると切り替わります</h6>
+     <li class="tab tab-active">
+       体重
+     </li>
+     <li class="tab">
+       体温
+     </li>
+     <li class="tab">
+       血圧
+     </li>
+   </ul>
+  </div>
+
+  <!--タブで選択された要素部分-->
   <div class ="row graph">
-   <div class ="col-md-6 weight-graph">
-    <h2>＜体重推移＞</h2>
-    <!--体重データのグラフ表示-->
-    <h6>※同じ日の体重は最新のもののみが表示されます</h6>
-    <%= line_chart @cares_weight_graph, height: "300px",xtitle: "日", ytitle: "体重",min: 30, max: 100, curve: false, empty: "データがありません" %>
-    <!--なんのデータを送っているのかを表示できる-->
-    <%#= @cares_graph.inspect %>
-    <!--モデルにchart_dateを定義したらこれでもいけそう-->
-    <%#= line_chart @cares.chart_date, xtitle: "日付", ytitle: "体重",min: 30, max: 80, width: "400px", height: "200px", curve: false, empty: "データがありません" %>
-   </div>
-   <div class ="col-md-6 body_temperature-graph">
-    <h2>＜体温推移＞</h2>
-    <!--c体温データのグラフ表示-->
-    <h6>※同じ日の体温は最新のもののみが表示されます</h6>
-    <%= line_chart @cares_body_temperature_graph, height: "300px",xtitle: "日", ytitle: "体温",min: 35, max: 40, curve: false, empty: "データがありません" %>
+   <div class="col-md-10 tabbox-contents">
+    <div class="weight-graph tabbox box-show">
+      <div class ="">
+       <h3>＜体重推移＞</h3>
+       <h6>※同じ日の体重は最新のもののみが表示されます</h6>
+       <%= line_chart @cares_weight_graph, height: "300px",xtitle: "日", ytitle: "体重",min: 30, max: 100, curve: false, empty: "データがありません" %>
+       <!--なんのデータを送っているのかを表示できる-->
+       <%#= @cares_graph.inspect %>
+       <!--モデルにchart_dateを定義したらこれでもいけそう-->
+       <%#= line_chart @cares.chart_date, xtitle: "日付", ytitle: "体重",min: 30, max: 80, width: "400px", height: "200px", curve: false, empty: "データがありません" %>
+      </div>
+    </div>
+    <div class="row tabbox">
+      <div class ="col-md-10 body_temperature-graph">
+       <h3>＜体温推移＞</h3>
+       <h6>※同じ日の体温は最新のもののみが表示されます</h6>
+       <%= line_chart @cares_body_temperature_graph, height: "300px",xtitle: "日", ytitle: "体温",min: 35, max: 40, curve: false, empty: "データがありません" %>
+      </div>
+    </div>
+    <div class="row tabbox">
+     <div class ="col-md-10 body_temperature-graph">
+      <!--血圧のグラフ未実装-->
+     <h3>＜血圧推移＞</h3>
+     <h6>※同じ日の血圧は最新のもののみが表示されます</h6>
+     <%= line_chart @cares_blood_pressure_graph, height: "300px",xtitle: "日", ytitle: "血圧",min: 40, max: 200, curve: false, empty: "データがありません" %>
+     </div>
    </div>
   </div>
+ </div>
+
  <!--careデータのテーブル表示-->
-   <h2>＜データ一覧＞</h2>
+  <div class="care_table">
+   <h3>＜データ一覧＞</h3>
     <table class="table table-striped">
      <thead>
       <tr>
@@ -33,7 +64,8 @@
      </thead>
      <tbody>
        <tr>
-       <% @cares.each do |care| %>
+       <%= paginate @careslists%>
+       <% @careslists.each do |care| %>
         <td><%= link_to care.start_time.strftime("%Y-%m-%d"), patient_care_path(patient_id: @patient.id, id: care.id) %></td>
         <td><%= care.user.name %></td>
         <td><%= care.weight %></td>
@@ -44,18 +76,19 @@
        <% end %>
       </tbody>
     </table>
+  </div>
 
  <!--careが行われた日のカレンダー表示-->
- <h2>＜ケア実施カレンダー＞</h2>
- <div class="calendar">
-  <%= month_calendar events: @cares do |date, cares| %>
-    <%= date.day %>
-   <% cares.each do |care| %>
-    <div>
-     <%= link_to care.user.name, patient_care_path(patient_id: care.patient_id, id: care.id) %>
-    </div>
-   <% end %>
-  <% end %>
-</div>
-<%= link_to "本日の記録を入力する", new_patient_care_path, class: "btn btn-success text-white" %>
+  <div class="calendar">
+   <h3>＜ケア実施カレンダー＞</h3>
+    <%= month_calendar events: @cares do |date, cares| %>
+      <%= date.day %>
+     <% cares.each do |care| %>
+      <div>
+       <%= link_to care.user.name, patient_care_path(patient_id: care.patient_id, id: care.id) %>
+      </div>
+     <% end %>
+    <% end %>
+  </div>
+ <%= link_to "本日の記録を入力する", new_patient_care_path, class: "btn btn-success text-white" %>
 </div>

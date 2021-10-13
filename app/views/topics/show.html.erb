@@ -1,0 +1,40 @@
+<div class = "col-lg-6 md-6 sm-6 offset-md-1">
+ <%= render 'patients/information' %>
+   <div>
+    <h2>投稿内容</h2>
+     <table class="topic-index">
+      <p>投稿日時：<%= @topic.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+      <p>投稿者：<%= @topic.user.name %>さん</p>
+        <tr><td>トピックタイトル：<%= @topic.content %></td></tr>
+        <tr><td>
+        <% if @topic.image.attached? %>
+          <%= image_tag @topic.image.variant(resize:'300x300') %>
+        <% else %>
+           <%= image_tag 'no_image.jpg', resize:'100x100' %>
+        <% end %>
+        </td></tr>
+        <% if @topic.user.id == current_user.id %>
+          <tr><td>
+            <%= link_to '編集する', edit_patient_topic_path(patient_id: @topic.patient_id, id: @topic.id), class: "btn btn-success text-white" %>
+            <%= link_to '削除する', patient_topic_path(patient_id: @topic.patient_id, id: @topic.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %>
+          </td></tr>
+        <% end %>
+     </table>
+     <table class="table">
+        <div>
+            <%= render 'topic_comments/index', topic: @topic, topic_comment: @topic_comment %>
+        </div>
+      　<tr><td>
+        <!--投稿に対するコメント新規作成-->
+      　  <!--非同期通信にするために local:true 削除-->
+          <%= form_with(model: @topic_comment, url: patient_topic_topic_comments_path(@patient.id, @topic.id)) do |f| %>
+          　<%= f.text_area :comment, rows:'3',placeholder: "コメント入力をここに" %>
+          　<%= f.file_field :image %>
+          　<%= f.submit "送信する" %>
+          <% end %>
+      　</td></tr>
+        <!--コメントの一覧-->
+     </table>
+      <%= link_to "他のケアトピックをみる", patient_topics_path(@patient.id) %>
+   </div>
+</div>

@@ -1,0 +1,47 @@
+<div class = "col-lg-6 md-6 sm-6 offset-md-1">
+    <%= render 'patients/information' %>
+</div>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-5">
+      <h2>ケアトピック投稿</h2>
+        <h6>※写真形式はjpeg,pngしか投稿できません</h6>
+        <%= form_with model: @topic, url: patient_topics_path(@patient.id), local:true do |f| %>
+         <%= render 'layouts/error_messages', model: f.object %>
+          <%= f.file_field :image %>
+          <h4>投稿する</h4>
+          <%= f.text_area :content, placeholder: "ケアトピック投稿をここに" %>
+          <%= f.submit '投稿する' %>
+        <% end %>
+    </div>
+    <div class="col col-lg-5">
+      <table class="table">
+        <% @topics.each do |topic| %>
+          <tr><td>投稿日時：<%= link_to topic.created_at.strftime("%Y-%m-%d %H:%M"), patient_topic_path(patient_id: @patient.id, id: topic.id) %></td></tr>
+          <tr><td style="border:none;">投稿者：<%= topic.user.name %>さん</td></tr>
+          <tr><td style="border:none;">トピックタイトル：<%= topic.content %></td></tr>
+          <tr><td style="border:none;">
+           <div>
+            <% if topic.image.attached? %>
+              <%= image_tag topic.image.variant(resize:'300x300') %>
+            <% else %>
+               <%= image_tag 'no_image.jpg', resize:'100x100'  %>
+            <% end %>
+           </div>
+          <tr><td style="border:none;">コメント<%= link_to "#{topic.topic_comments.count}件 ", patient_topic_path(@patient.id, topic.id) %></td></tr>
+          <tr><td style="border:none;"><%#= render 'topic_favorites/favorite', topic: topic %></td></tr>
+           <div>
+            <% if topic.user.id == current_user.id %>
+              <tr><td style="border:none;">
+                <%= link_to '編集する', edit_patient_topic_path(patient_id: topic.patient_id, id: topic.id), class: "btn btn-success text-white" %>
+                <%= link_to '削除する', patient_topic_path(patient_id: topic.patient_id, id: topic.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %>
+              </td></tr>
+            <% end %>
+           </div>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+

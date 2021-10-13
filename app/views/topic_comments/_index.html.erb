@@ -1,0 +1,19 @@
+<table class="table" >
+  <% topic.topic_comments.each do |topic_comment| %>
+    <tr><td><%= topic_comment.created_at.strftime("%Y-%m-%d %H:%M") %></td></tr>
+    <tr><td style="border:none;">コメント：<%= topic_comment.user.name %>さん</td></tr>
+    <tr><td style="border:none;"><%= topic_comment.comment %></td></tr>
+    <tr><td style="border:none;">
+      <% if topic_comment.image.attached? %>
+        <%= image_tag topic_comment.image.variant(resize:'300x300') %>
+      <% else %>
+         <%= image_tag 'no_image.jpg', resize:'100x100' %>
+      <% end %>
+    </td></tr>
+    <tr><td style="border:none;">
+      <% if topic_comment.user == current_user %>
+        <div><%= link_to "削除する", patient_topic_topic_comment_path(topic.patient_id, topic.id, topic_comment.id), class: "btn btn-danger text-white", method: :delete, data: { confirm: '本当に削除しますか?' } %></div>
+      <% end %>
+    </td></tr>
+      <% end %>
+</table>

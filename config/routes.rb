@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'homes/about'
-  get 'users/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -13,6 +12,10 @@ Rails.application.routes.draw do
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+    end
+    resources :topics do
+      resources :topic_comments, only: [:create, :destroy]
+      resource :topic_favorites, only: [:create, :destroy]
     end
   end
   resources :users, only: [:show, :edit, :update]

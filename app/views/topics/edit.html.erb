@@ -1,6 +1,6 @@
-<div class = "col-lg-6 md-6 sm-6 offset-md-1">
-  <h2>＜タイムライン編集＞</h2>
-  <%= form_with model: @post, url: patient_post_path(@patient.id), method: :patch, local:true do |f| %>
+<div class = "col-lg-6 md-6 sm-6 offset-md-1 ">
+  <h2>＜ケアトピック編集＞</h2>
+  <%= form_with model: @topic, url: patient_topic_path(@patient.id), method: :patch, local:true do |f| %>
   　<%= render 'layouts/error_messages', model: f.object %>
       <%= f.file_field :image %>
       <h4>コメントを編集する</h4>

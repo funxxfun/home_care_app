@@ -1,0 +1,14 @@
+<!--非同期通信にするため　, remote: true do　追記-->
+<% if topic.favorited_by?(current_user) %>
+  <p>
+    <%= link_to patient_topic_favorites_path(topic.patient_id, topic.id), method: :delete, remote: true do %>
+      ♥<%= topic.favorites.count %> 確認しました
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to patient_topic_favorites_path(topic.patient_id, topic.id), method: :topic , remote: true do %>
+      ♡<%= topic.favorites.count %>(確認したらクリックしてください)
+    <% end %>
+  </p>
+<% end %>

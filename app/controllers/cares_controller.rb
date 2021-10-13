@@ -29,14 +29,17 @@ class CaresController < ApplicationController
     # 配列用の空の箱を準備
     @cares_weight_graph = []
     @cares_body_temperature_graph = []
+    @cares_blood_pressure_graph = []
     # careをeachで順にとりだす
     @cares.each do |care|
     # ( )の中身を[ ]内の１個１個のデータにしてからの[]の中にpushしてやる
       @cares_weight_graph.push([care.start_time.strftime("%Y-%m-%d"), care.weight.to_s])
       @cares_body_temperature_graph.push([care.start_time.strftime("%Y-%m-%d"), care.body_temperature.to_s])
+      @cares_blood_pressure_graph.push([care.start_time.strftime("%Y-%m-%d"), care.blood_pressure.to_s])
     end
     # モデルにchart_dateを定義したらこれでもいけそう
     # @cares_graph = Care.chart_date
+    @careslists = @patient.cares.order(start_time: :desc).page(params[:page])
     @user = current_user
   end
 

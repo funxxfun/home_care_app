@@ -8,6 +8,7 @@
       <%= link_to 'タイムライン', patient_posts_path(@patient.id), class: "btn btn-primary text-white ms-2" %>
       <%= link_to '過去のケア一覧', patient_cares_path(@patient.id), class: "btn btn-warning text-white ms-2" %>
       <%= link_to '記録する', new_patient_care_path(@patient.id), class: "btn btn-success text-white ms-2" %>
+      <%= link_to 'ケアトピック', patient_topics_path(@patient.id), class: "btn btn-secondary text-white ms-2" %>
     <% end %>
   </div>
 </div>
