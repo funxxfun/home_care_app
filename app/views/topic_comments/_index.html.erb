@@ -6,8 +6,6 @@
     <tr><td style="border:none;">
       <% if topic_comment.image.attached? %>
         <%= image_tag topic_comment.image.variant(resize:'300x300') %>
-      <% else %>
-         <%= image_tag 'no_image.jpg', resize:'100x100' %>
       <% end %>
     </td></tr>
     <tr><td style="border:none;">

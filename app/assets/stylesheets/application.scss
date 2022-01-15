@@ -30,9 +30,10 @@
 // topページのレイアウトここから
 .top {
   width: 100%;
+  min-height:100vh;
+  position: relative;
   background-image: image-url("image/3517910_l.jpg");
   background-size: cover;
-
 }
 
 ul {
@@ -102,4 +103,9 @@ display: inline;
 .tab:hover{
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
+}
+
+footer{
+  font-size: 20px;
+  padding: 10px 0;
 }
